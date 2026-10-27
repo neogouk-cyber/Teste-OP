@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Agenda da OP · SME Goiânia</title>
+<meta name="description" content="Versão 1: a Orientação Pedagógica do mês como agenda. Calendário, semana, prazos e texto completo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/brand.css">
+<script>try{var t=localStorage.getItem('opthm');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+/* ===== Versão 1 · Agenda do mês ===== */
+.top{background:var(--verde-800);color:#fff;position:sticky;top:0;z-index:40}
+.top-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 16px;flex-wrap:wrap}
+.top .brandlogo{height:44px}
+.ttl{display:flex;flex-direction:column;line-height:1.15;min-width:0;flex:1}
+.ttl b{font:600 16px var(--sans)}
+.ttl small{font:400 12px var(--sans);opacity:.75}
+.sbox{position:relative;order:3;flex:1 1 100%}
+.sbox input{width:100%;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);color:#fff;padding:0 40px 0 40px;font:400 15px var(--sans)}
+.sbox input::placeholder{color:rgba(255,255,255,.65)}
+.sbox input:focus{background:#fff;color:var(--ink);outline:3px solid var(--accent)}
+.sbox .ic{position:absolute;left:13px;top:12px;width:20px;height:20px;opacity:.75;pointer-events:none}
+.tbtn{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#fff}
+.tbtn:hover{background:rgba(255,255,255,.18)}
+@media (min-width:900px){.top-in{flex-wrap:nowrap}.sbox{order:0;flex:0 1 420px}}
+
+/* faixa "Na rede": uma linha, não ocupa a página */
+.ticker{background:var(--laranja-100);color:var(--ink);border-bottom:1px solid color-mix(in srgb,var(--laranja) 30%,var(--line))}
+.tk-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 10px 0 16px;height:46px}
+.tk-tag{display:flex;align-items:center;gap:6px;font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--laranja-texto);flex:none}
+.tk-msg{flex:1;min-width:0;display:flex;align-items:center;gap:8px;font-size:14px;overflow:hidden}
+.tk-msg a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.tk-msg a b{font-weight:600}
+.tk-msg a:hover{text-decoration:underline}
+.tk-msg .when{flex:none;font:600 12px var(--sans);color:var(--laranja-texto);background:var(--surface);border-radius:8px;padding:2px 8px}
+.tk-btn{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--ink2);flex:none}
+.tk-btn:hover{background:rgba(0,0,0,.06)}
+.tk-all{font:600 13px var(--sans);color:var(--laranja-texto);white-space:nowrap;flex:none;padding:6px 8px}
+@media (max-width:560px){.tk-tag span,.tk-msg .when,.ttl small{display:none}.tk-all{font-size:0;padding:6px}.tk-all::after{content:"Todos";font-size:13px}.filters{flex-basis:100%}.xbtn{width:100%;justify-content:center}.sync{margin-left:0}}
+.tk-fade{animation:tk .4s ease}
+@keyframes tk{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.shell{max-width:1320px;margin:0 auto;padding:18px 16px 80px}
+/* cabeçalho do mês */
+.mhead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 18px}
+.mhead h1{margin:0;font:600 clamp(28px,5vw,44px)/1 var(--sans);letter-spacing:-.03em;color:var(--verde-800)}
+:root[data-theme="dark"] .mhead h1{color:var(--ink)}
+.mhead .op{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--ink2)}
+.badge{background:var(--laranja);color:#fff;border-radius:8px;padding:2px 9px;font:600 13px var(--sans)}
+.mpick{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:14px -16px 0;padding:0 16px 4px}
+.mpick::-webkit-scrollbar{display:none}
+.mpick a{flex:none;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font:500 13.5px var(--sans);color:var(--ink2)}
+.mpick a[aria-current="true"]{background:var(--verde-800);color:#fff;border-color:var(--verde-800)}
+.mpick a em{font-style:normal;font-size:11px;margin-left:5px;color:var(--laranja-texto)}
+.mpick a[aria-current="true"] em{color:#FFD7B5}
+.sync{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px;margin-top:16px;width:max-content;max-width:100%}
+.tabs a{display:flex;align-items:center;gap:7px;padding:9px 16px;border-radius:10px;font:500 14px var(--sans);color:var(--ink2)}
+.tabs a[aria-current="true"]{background:var(--verde-800);color:#fff}
+
+/* semana */
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:18px}
+.wd{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 6px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.wd small{font:500 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.wd b{font:600 20px/1.1 var(--sans)}
+.wd span{font:500 11px var(--sans);color:var(--muted);white-space:nowrap}
+.wd.has span{color:var(--verde-600);font-weight:600}
+.wd.today{border-color:var(--laranja);box-shadow:inset 0 0 0 1px var(--laranja)}
+.wd.today b{color:var(--laranja-texto)}
+.wd[aria-pressed="true"]{background:var(--verde-800);color:#fff;border-color:var(--verde-800)}
+.wd[aria-pressed="true"] small,.wd[aria-pressed="true"] span{color:#E1EBDD}
+.wd.out{opacity:.4}
+.secttl{display:flex;align-items:center;gap:10px;justify-content:space-between;margin:28px 0 10px;flex-wrap:wrap}
+.secttl h2{margin:0;font:600 19px var(--sans)}
+.secttl small{color:var(--muted);font-size:13px}
+
+/* barra de ferramentas */
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.filters{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;padding:2px 0}
+.filters::-webkit-scrollbar{display:none}
+.fchip{flex:none;display:flex;align-items:center;gap:7px;padding:6px 12px 6px 9px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font:500 13px var(--sans);color:var(--ink2)}
+.fchip i{width:10px;height:10px;border-radius:50%;background:var(--ac)}
+.fchip[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.fchip.all{background:var(--verde-800);color:#fff;border-color:var(--verde-800)}
+.xbtn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:9px 14px;font:600 14px var(--sans);background:var(--laranja);color:#1F1206;white-space:nowrap}
+.xbtn:hover{filter:brightness(1.05)}
+.gbtn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:9px 14px;font:500 14px var(--sans);border:1.5px solid var(--verde-600);color:var(--verde-600);white-space:nowrap}
+:root[data-theme="dark"] .gbtn{color:var(--brand);border-color:var(--brand)}
+
+.calwrap{display:grid;gap:16px;margin-top:12px}
+@media (min-width:1100px){.calwrap{grid-template-columns:minmax(0,1.7fr) minmax(340px,1fr);align-items:start}.dpanel{position:sticky;top:130px;max-height:calc(100vh - 150px);overflow:auto}}
+.calbox{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:var(--sh1)}
+.dpanel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--sh1)}
+.dhead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.dbig{width:56px;height:60px;border-radius:14px;background:var(--verde-800);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none}
+.dbig b{font:600 25px/1 var(--sans)}.dbig span{font:600 10px var(--sans);letter-spacing:.1em}
+.dhead>div:nth-child(2){flex:1;min-width:0}
+.dhead b{display:block;font:600 16px var(--sans)}
+.dhead small{color:var(--muted);font-size:13px}
+.dstep{display:flex;gap:6px}
+.dstep button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;background:var(--surface2)}
+.dstep button:disabled{opacity:.3}
+
+.agd{display:grid;grid-template-columns:62px minmax(0,1fr);gap:12px;margin-bottom:6px}
+.agdh{position:sticky;top:130px;align-self:start;text-align:center;padding-top:10px}
+.agdh b{display:block;font:600 26px/1 var(--sans)}
+.agdh span{font:500 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.agdh.today b{color:var(--laranja-texto)}
+.agd .cards{padding-bottom:12px;border-bottom:1px dashed var(--line2);margin-bottom:6px}
+.agd.nodate{grid-template-columns:1fr}
+.agd.nodate h3{margin:6px 0 10px;font:600 16px var(--sans)}
+@media (min-width:900px){.agd .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.agd{grid-template-columns:46px minmax(0,1fr);gap:8px}.agdh b{font-size:21px}}
+
+/* OP: seções */
+.sgrid{display:grid;gap:10px;margin-top:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.stile{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;transition:.15s}
+.stile:hover{border-color:var(--ac);box-shadow:var(--sh2)}
+.stile .bi{width:44px;height:44px;border-radius:12px;background:var(--acbg);color:var(--ac);display:grid;place-items:center;flex:none}
+.stile .bi .ic{width:22px;height:22px}
+.stile b{display:block;font:600 15px/1.25 var(--sans)}
+.stile small{color:var(--muted);font-size:12.5px}
+.rbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
+.back{display:inline-flex;align-items:center;gap:6px;font:500 14px var(--sans);color:var(--ink2);padding:8px 12px 8px 8px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.rtools{margin-left:auto;display:flex;gap:6px}
+.rtools button{height:40px;min-width:40px;padding:0 10px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:4px;font:600 13px var(--sans);color:var(--ink2)}
+.rhero{margin-top:14px;display:flex;gap:14px;align-items:center}
+.rhero .bi{width:54px;height:54px;border-radius:16px;background:var(--acbg);color:var(--ac);display:grid;place-items:center;flex:none}
+.rhero .bi .ic{width:28px;height:28px}
+.rhero h1{margin:0;font:600 clamp(22px,4vw,32px)/1.1 var(--sans)}
+.rhero small{color:var(--ac);font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.rgrid{display:grid;gap:24px}
+@media (min-width:1100px){.rgrid{grid-template-columns:260px minmax(0,1fr)}.toc-side{position:sticky;top:130px;max-height:calc(100vh - 150px);overflow:auto}.rmain .toc-inline{display:none}}
+.toc-side{display:none}
+@media (min-width:1100px){.toc-side{display:block;margin-top:22px}}
+.toc-side a{display:block;padding:6px 12px;border-left:2px solid var(--line);font-size:13.5px;color:var(--ink2);line-height:1.35}
+.toc-side a.l2{padding-left:24px;font-size:13px;color:var(--muted)}
+.toc-side a:hover{border-left-color:var(--accent);color:var(--ink)}
+
+/* busca */
+.res{display:block;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--ac);border-radius:14px;padding:13px 15px;margin-top:10px}
+.res b{display:flex;align-items:center;gap:8px;font:600 15px var(--sans)}
+.res b .ic{color:var(--ac)}
+.res p{margin:5px 0 0;color:var(--muted);font-size:13.5px}
+
+/* gaveta de destaques */
+.drawer{position:fixed;inset:0;z-index:70;background:rgba(10,20,12,.45);display:flex;justify-content:flex-end}
+.drawer>div{width:min(420px,100%);height:100%;background:var(--bg);overflow:auto;padding:18px;box-shadow:-20px 0 40px rgba(0,0,0,.2)}
+.drawer h2{margin:0 0 4px;font:600 20px var(--sans);display:flex;align-items:center;gap:10px}
+.drawer h2 button{margin-left:auto;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line)}
+.dcard{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:10px}
+.dcard .artw{height:100%;min-height:86px}
+.dcard div:last-child{padding:10px 12px 10px 0}
+.dcard small{font:600 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--laranja-texto)}
+.dcard b{display:block;font:600 15px/1.25 var(--sans);margin:2px 0}
+.dcard p{margin:0;font-size:13.5px;color:var(--ink2)}
+.note{font-size:12.5px;color:var(--muted);background:var(--surface);border:1px dashed var(--line2);border-radius:12px;padding:10px 12px;margin-top:14px}
+footer{max-width:1320px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brandlogo" href="#/" aria-label="Início"><img src="../assets/logo-goiania.jpeg" alt="Prefeitura de Goiânia · Gestão que Resolve"></a>
+  <span class="ttl"><b>Orientações Pedagógicas</b><small>Secretaria Municipal de Educação</small></span>
+  <label class="sbox"><span class="sr">Buscar nas orientações</span><span id="sic"></span><input id="q" type="search" placeholder="Buscar: conselho de classe, MAP, LEIA…" autocomplete="off" enterkeyhint="search"></label>
+  <button class="tbtn" id="theme" aria-label="Alternar tema claro e escuro"></button>
+</div></header>
+<div class="ticker" id="ticker" aria-label="Na rede"></div>
+<div class="shell"><main id="main"></main></div>
+<footer>Protótipo · versão 1 · Conteúdo organizado a partir dos PDFs oficiais das OP nº 01 a 09 de 2026. Em caso de dúvida, vale o PDF publicado pela SME.</footer>
+<script src="../data/op2026.js"></script>
+<script src="../data/destaques.js"></script>
+<script src="../shared/op-core.js"></script>
+<script>
+(function(){
+'use strict';
+const C=OPCore, {$,$$,esc,ic,pad,MON,MON3,WD,WD3}=C;
+const S={off:new Set(),day:null,mid:null,q:'',hl:''};
+const H=(mid,a,b)=>'#/'+mid+(a?'/op/'+a:'')+(b?'/'+b:'');
+const M=id=>C.DB.find(m=>m.id===id);
+function route(){
+  const p=location.hash.replace(/^#\/?/,'').split('/').filter(Boolean);
+  let mid=p[0]; if(!M(mid)) mid=C.currentMonth().id;
+  const m=M(mid);
+  if(p[1]==='op'){ if(p[2]&&m.sections.some(s=>s.key===p[2])) return {mid,view:'sec',sec:p[2],hid:p[3]||null}; return {mid,view:'op'}; }
+  return {mid,view:'agenda'};
+}
+
+/* ---- faixa Na rede ---- */
+let tkI=0,tkT=null;
+function ticker(){
+  const L=C.destaques(); if(!L.length){$('#ticker').hidden=true;return}
+  const d=L[tkI%L.length], r=C.destRoute(d);
+  $('#ticker').innerHTML=`<div class="tk-in"><span class="tk-tag">${ic('megaphone')}<span>Na rede</span></span>
+    <button class="tk-btn" id="tkp" aria-label="Destaque anterior">${ic('chevL')}</button>
+    <div class="tk-msg tk-fade" aria-live="polite"><span class="when">${d.inicio===d.fim?C.fmtShort(d.inicio):C.fmtShort(d.inicio)+' a '+C.fmtShort(d.fim)}</span><a href="${r.mid?'#/'+r.mid+(r.sec?'/op/'+r.sec:''):'#'}"><b>${esc(d.titulo)}.</b> ${esc(d.texto)}</a></div>
+    <button class="tk-btn" id="tkn" aria-label="Próximo destaque">${ic('chevR')}</button>
+    <button class="tk-all" id="tka">Ver todos (${L.length})</button></div>`;
+  $('#tkp').onclick=()=>{tkI=(tkI-1+L.length)%L.length;ticker();arm()};
+  $('#tkn').onclick=()=>{tkI++;ticker();arm()};
+  $('#tka').onclick=drawer;
+}
+function arm(){clearInterval(tkT);tkT=setInterval(()=>{if(!document.hidden&&!$('#ticker:hover')){tkI++;ticker()}},7000)}
+function drawer(){
+  const L=C.destaques(), el=document.createElement('div'); el.className='drawer';
+  el.innerHTML=`<div role="dialog" aria-label="Destaques da rede"><h2>${ic('megaphone')}Na rede<button aria-label="Fechar">${ic('x')}</button></h2><small class="muted">O que está acontecendo nas escolas e na SME</small>
+    ${L.map((d,i)=>{const r=C.destRoute(d);return `<a class="dcard" href="${r.mid?'#/'+r.mid+(r.sec?'/op/'+r.sec:''):'#'}"><span class="artw">${C.art(d.cor,i)}</span><div><small>${esc(d.tipo)} · ${d.inicio===d.fim?C.fmtShort(d.inicio):C.fmtShort(d.inicio)+' a '+C.fmtShort(d.fim)}</small><b>${esc(d.titulo)}</b><p>${esc(d.texto)}</p></div></a>`}).join('')}
+    <p class="note">${ic('info')} No protótipo, os destaques foram montados com itens da OP nº 09. Na versão final, a equipe da SME publica cada destaque em uma planilha do Google, e o site lê a planilha.</p></div>`;
+  document.body.appendChild(el);
+  const close=()=>el.remove();
+  el.onclick=e=>{if(e.target===el||e.target.closest('h2 button')||e.target.closest('.dcard'))close()};
+  addEventListener('keydown',function k(e){if(e.key==='Escape'){close();removeEventListener('keydown',k)}});
+}
+
+/* ---- cabeçalho do mês ---- */
+function head(m,R){
+  const cur=C.currentMonth().id;
+  const upd=C.updatedLabel();
+  return `<div class="mhead"><div><div class="op"><span class="badge">OP nº ${pad(m.op)}</span><span>${esc(m.period||'')}</span></div><h1>${esc(m.name)} de ${m.year||2026}</h1></div>
+    <div class="sync" title="De onde vêm os dados"><span class="syncdot" id="sdot"></span><span id="stxt">${esc(C.META.fonte||'')}${upd?' · '+upd:''}</span><button class="gbtn" id="sbtn" style="padding:6px 10px;font-size:12.5px">${ic('refresh')}Atualizar</button></div></div>
+    <nav class="mpick" aria-label="Meses">${C.DB.map(x=>`<a href="#/${x.id}${R.view==='op'||R.view==='sec'?'/op':''}" aria-current="${x.id===m.id}">${esc(x.name)}${x.id===cur?'<em>vigente</em>':''}</a>`).join('')}</nav>
+    <nav class="tabs" aria-label="Modo"><a href="#/${m.id}" aria-current="${R.view==='agenda'}">${ic('cal')}Agenda</a><a href="#/${m.id}/op" aria-current="${R.view!=='agenda'}">${ic('book')}Ler a OP</a></nav>`;
+}
+function bindHead(){
+  const b=$('#sbtn'); if(!b)return;
+  b.onclick=async()=>{b.disabled=true;const r=await C.sync();b.disabled=false;
+    if(r.configured){C.toast(r.changed?'Conteúdo atualizado do Drive':'Nada mudou no Drive');if(r.changed){render(true)}}
+    else C.toast('Protótipo: a ligação com o Drive ainda será configurada')};
+}
+
+/* ---- agenda ---- */
+function renderAgenda(m,R){
+  const used=[...new Set(C.parseEvents(m).map(e=>e.s))];
+  const flt=e=>!S.off.has(e.s.key);
+  const G=C.monthGrid(m,{filter:flt,sel:S.day});
+  if(S.mid!==m.id||!S.day){S.mid=m.id;S.day=(G.today&&G.byDay[G.today])?G.today:(G.dayList.find(d=>d>=G.today)||G.dayList[0]||null)}
+  const G2=C.monthGrid(m,{filter:flt,sel:S.day});
+  const y=m.year||2026, mo=m.mnum;
+  /* semana do dia selecionado */
+  const base=new Date(y,mo-1,S.day||1), ws=C.addDays(base,-base.getDay());
+  const week=[0,1,2,3,4,5,6].map(i=>{const d=C.addDays(ws,i),inM=d.getMonth()+1===mo,n=inM?(G2.byDay[d.getDate()]||[]).length:0;
+    return `<button class="wd${n?' has':''}${inM&&d.getDate()===G2.today?' today':''}${inM?'':' out'}" ${inM?`data-d="${d.getDate()}"`:'disabled'} aria-pressed="${inM&&d.getDate()===S.day}"><small>${WD3[i]}</small><b>${d.getDate()}</b><span>${n?n+(n===1?' ação':' ações'):'—'}</span></button>`}).join('');
+  const sel=S.day, arr=G2.byDay[sel]||[], wd=sel?new Date(y,mo-1,sel).getDay():0;
+  const iD=G2.dayList.indexOf(sel), pD=iD>0?G2.dayList[iD-1]:G2.dayList.filter(d=>d<sel).pop(), nD=iD>=0?G2.dayList[iD+1]:G2.dayList.find(d=>d>sel);
+  const panel=sel?`<aside class="dpanel" id="dpanel"><div class="dhead"><div class="dbig"><b>${pad(sel)}</b><span>${MON3[mo-1]}</span></div><div><b>${WD[wd]}</b><small>${arr.length} ${arr.length===1?'ação':'ações'} neste dia</small></div><div class="dstep"><button id="dp" aria-label="Dia anterior com ações" ${pD?'':'disabled'}>${ic('chevL')}</button><button id="dn" aria-label="Próximo dia com ações" ${nD?'':'disabled'}>${ic('chevR')}</button></div></div>${arr.length?`<div class="cards">${arr.map(x=>C.card(x.e,{src:true,href:H})).join('')}</div>`:'<p class="empty">Nada marcado neste dia.</p>'}</aside>`:'';
+  const ag=G2.dayList.map(d=>{const w=new Date(y,mo-1,d).getDay();return `<div class="agd"><div class="agdh${d===G2.today?' today':''}"><b>${pad(d)}</b><span>${WD3[w]}</span></div><div class="cards">${G2.byDay[d].map(x=>C.card(x.e,{src:true,compact:true,href:H})).join('')}</div></div>`}).join('');
+  const un=G2.und.length?`<div class="agd nodate"><div><h3>${ic('repeat')} Ações contínuas ou sem dia fixo</h3><div class="cards two">${G2.und.map(e=>C.card(e,{src:true,compact:true,href:H})).join('')}</div></div></div>`:'';
+  $('#main').innerHTML=head(m,R)+`
+    <div class="secttl"><h2>Semana</h2><small>Toque em um dia para ver as ações</small></div><div class="week">${week}</div>
+    <div class="tools"><div class="filters" role="group" aria-label="Filtrar por seção"><button class="fchip all" id="fall">${S.off.size?'Mostrar todas':'Todas as seções'}</button>${used.map(s=>`<button class="fchip tone-${s.color}" data-f="${s.key}" aria-pressed="${!S.off.has(s.key)}"><i></i>${esc(C.sShort(s.key))}</button>`).join('')}</div>
+    <button class="xbtn" id="exp">${ic('calplus')}Levar para minha agenda</button></div>
+    <div class="calwrap"><div class="calbox">${G2.html}</div>${panel}</div>
+    <div class="secttl"><h2>Agenda do mês</h2><small>${G2.dayList.length} dias com ações · ${G2.und.length} contínuas</small></div>${ag}${un}`;
+  $$('#main [data-d]').forEach(b=>b.onclick=()=>{S.day=+b.dataset.d;renderAgenda(m,R);if(innerWidth<1100){const p=$('#dpanel');if(p)p.scrollIntoView({behavior:'smooth',block:'start'})}});
+  $$('#main [data-f]').forEach(b=>b.onclick=()=>{const k=b.dataset.f;S.off.has(k)?S.off.delete(k):S.off.add(k);renderAgenda(m,R)});
+  $('#fall').onclick=()=>{if(S.off.size)S.off.clear();else used.forEach(s=>S.off.add(s.key));renderAgenda(m,R)};
+  if($('#dp'))$('#dp').onclick=()=>{if(pD){S.day=pD;renderAgenda(m,R)}};
+  if($('#dn'))$('#dn').onclick=()=>{if(nD){S.day=nD;renderAgenda(m,R)}};
+  $('#exp').onclick=e=>{const evs=C.parseEvents(m).filter(flt).filter(x=>x.rg.length);C.addMenu(e.currentTarget,evs,'OP '+pad(m.op)+' · '+m.name+(S.off.size?' (filtrado)':''))};
+  C.bindCards($('#main')); bindHead(); centerMonth();
+}
+function centerMonth(){const a=$('.mpick a[aria-current="true"]');if(a){const p=a.parentNode;p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.offsetWidth/2}}
+
+/* ---- OP: seções e leitor ---- */
+function renderOp(m,R){
+  const evs=C.parseEvents(m);
+  $('#main').innerHTML=head(m,R)+`<div class="sgrid">${m.sections.map(s=>{const n=evs.filter(e=>e.s===s).length,d=C.sectionDoc(m,s);return `<a class="stile tone-${s.color}" href="${H(m.id,s.key)}"><span class="bi">${ic(C.sIco(s.key))}</span><span><b>${esc(s.title)}</b><small>${n?n+(n===1?' ação':' ações'):'Orientações'}${d.links.length?' · '+d.links.length+' links':''}</small></span></a>`}).join('')}</div>`;
+  bindHead(); centerMonth();
+}
+function renderSec(m,R){
+  const s=m.sections.find(x=>x.key===R.sec), r=C.readerHTML(m,s,H), idx=m.sections.indexOf(s), nx=m.sections[idx+1];
+  $('#main').innerHTML=`<div class="tone-${s.color}"><div class="rbar"><a class="back" href="#/${m.id}/op">${ic('chevL')}Seções de ${esc(m.name)}</a><div class="rtools"><button id="fm" aria-label="Diminuir texto">A−</button><button id="fp" aria-label="Aumentar texto">A+</button><button id="sh" aria-label="Compartilhar">${ic('share')}</button><button id="pr" aria-label="Imprimir">${ic('print')}</button></div></div>
+    <header class="rhero"><span class="bi">${ic(C.sIco(s.key))}</span><div><small>OP nº ${pad(m.op)} · ${esc(m.name)}</small><h1>${esc(s.title)}</h1></div></header>
+    <div class="rgrid"><nav class="toc-side">${r.toc.map(h=>`<a href="${H(m.id,s.key,h.id)}" class="${h.lvl===2?'l2':''}">${esc(h.t)}</a>`).join('')}</nav><div class="rmain">${r.html}
+    ${nx?`<p style="margin-top:28px"><a class="gbtn" href="${H(m.id,nx.key)}">Próxima seção: ${esc(C.sShort(nx.key))}${ic('arrow')}</a></p>`:''}</div></div></div>`;
+  const f=C.fontTools(); $('#fm').onclick=f.minus; $('#fp').onclick=f.plus; $('#pr').onclick=()=>print(); $('#sh').onclick=()=>C.share(s.title);
+  C.bindReader($('#main'),m,s,R.hid,S.hl); S.hl='';
+}
+function renderSearch(q){
+  const hits=C.search(q);
+  $('#main').innerHTML=`<div class="mhead"><h1 style="font-size:clamp(24px,4vw,34px)">“${esc(q)}”</h1></div><p class="muted">${hits.length} ${hits.length===1?'seção encontrada':'seções encontradas'} em todos os meses</p>
+   ${hits.slice(0,60).map(h=>`<a class="res tone-${h.s.color}" href="${H(h.m.id,h.s.key)}" data-q>${'<b>'+ic(C.sIco(h.s.key))+esc(h.m.name)+' · '+esc(C.sShort(h.s.key))+'</b>'}<p>${h.snip}</p></a>`).join('')||'<p class="empty">Nada encontrado. Tente outra palavra.</p>'}`;
+  $$('#main [data-q]').forEach(a=>a.onclick=()=>{S.hl=q;S.q='';$('#q').value=''});
+}
+
+let last='';
+function render(force){
+  const R=route(), m=M(R.mid);
+  if(S.q.length>1){renderSearch(S.q);last='';return}
+  const key=R.mid+R.view+(R.sec||'');
+  if(!force&&key===last&&R.view==='sec'&&R.hid){const t=document.getElementById(R.hid);if(t)t.scrollIntoView({behavior:'smooth'});return}
+  const ch=key!==last; last=key;
+  if(R.view==='sec')renderSec(m,R); else if(R.view==='op')renderOp(m,R); else renderAgenda(m,R);
+  if(ch&&!R.hid)scrollTo(0,0);
+  document.title=(R.view==='sec'?m.sections.find(s=>s.key===R.sec).title+' · ':'')+m.name+' · Agenda da OP';
+}
+C.theme($('#theme')); $('#sic').innerHTML=ic('search');
+let tm; $('#q').addEventListener('input',e=>{clearTimeout(tm);tm=setTimeout(()=>{S.q=e.target.value.trim();render()},220)});
+$('#q').addEventListener('keydown',e=>{if(e.key==='Escape'){e.target.value='';S.q='';render()}});
+addEventListener('hashchange',()=>{if(S.q){S.q='';$('#q').value=''}render()});
+ticker(); arm(); render();
+})();
+</script>
+</body>
+</html>

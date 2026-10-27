@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Central da OP 2026</title>
+<meta name="description" content="Três propostas de site para a Orientação Pedagógica mensal da SME Goiânia, com perfis de quem usa, destaques da rede, exportação para agenda e atualização pelo Google Drive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/brand.css">
+<style>
+.top{background:var(--verde-800);color:#fff}
+.top .in{max-width:1080px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px}
+.top .brandlogo{height:46px}
+.top span{font:500 13px/1.3 var(--sans);opacity:.85}
+.hero{background:var(--laranja);color:#1F1206;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;top:-90px;width:320px;height:320px;border-radius:50%;background:var(--amarelo);opacity:.6}
+.hero .in{max-width:1080px;margin:0 auto;padding:34px 16px 30px;position:relative;z-index:1}
+.hero small{font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.hero h1{margin:6px 0 10px;font:600 clamp(30px,5vw,50px)/1.05 var(--sans);letter-spacing:-.03em;color:#13301A}
+.hero p{margin:0;max-width:720px;font-size:17px;line-height:1.55}
+main{max-width:1080px;margin:0 auto;padding:10px 16px 60px}
+section{margin-top:44px}
+h2{font:600 26px/1.2 var(--sans);margin:0 0 10px;color:var(--verde-800)}
+:root[data-theme="dark"] h2{color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--ink)}}
+h3{font:600 18px/1.3 var(--sans);margin:0 0 6px}
+p{margin:0 0 12px;max-width:760px;line-height:1.6}
+.lead{font-size:17px;color:var(--ink2)}
+.vgrid{display:grid;gap:16px;margin-top:18px}
+@media (min-width:900px){.vgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.vcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.vcard .shot{height:150px;position:relative;border-bottom:1px solid var(--line)}
+.vcard .shot .n{position:absolute;left:14px;top:12px;background:#fff;color:#13301A;border-radius:10px;padding:2px 10px;font:600 13px var(--sans);box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.vcard .bd{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.vcard p{font-size:14.5px;margin:0;color:var(--ink2)}
+.vcard .who{font:500 13px var(--sans);color:var(--laranja-texto)}
+.vcard .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.b1{display:inline-flex;align-items:center;gap:7px;border-radius:12px;padding:10px 14px;font:600 14px var(--sans);background:var(--verde-800);color:#fff}
+.b2{display:inline-flex;align-items:center;gap:7px;border-radius:12px;padding:10px 14px;font:500 14px var(--sans);border:1px solid var(--line2);color:var(--ink2)}
+:root[data-theme="dark"] .b1{background:var(--brand);color:#0D1710}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--verde-100);font:600 13px var(--sans);color:var(--verde-800)}
+:root[data-theme="dark"] th{color:var(--ink)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;width:24%}
+.tw{overflow-x:auto;border-radius:16px;margin-top:14px}
+.tw table{min-width:680px}
+.flow{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;margin-top:16px}
+.flow svg{width:100%;height:auto;display:block}
+.flow text{font-family:var(--sans)}
+.two{display:grid;gap:16px;margin-top:14px}
+@media (min-width:820px){.two{grid-template-columns:1fr 1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
+.panel p{font-size:15px}
+.sw{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sw span{display:flex;align-items:center;gap:8px;font:500 13px var(--sans);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 10px 6px 6px}
+.sw i{width:26px;height:26px;border-radius:8px;display:block}
+ol{padding-left:22px;max-width:760px;line-height:1.6}
+ol li{margin-bottom:8px}
+.note{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:18px 16px;text-align:center;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><span class="brandlogo"><img src="assets/logo-goiania.jpeg" alt="Prefeitura de Goiânia · Gestão que Resolve"></span><span>Secretaria Municipal de Educação<br>Superintendência Pedagógica</span></div></header>
+<div class="hero"><div class="in"><small>Proposta para discussão · 27/10/2026</small><h1>Central das Orientações Pedagógicas</h1>
+<p>Três versões de site para a OP mensal. As três usam o mesmo conteúdo, de janeiro a outubro de 2026 (OP nº 01 a 09, 555 ações). Elas mudam no que aparece primeiro e em como os destaques da rede entram na tela.</p></div></div>
+<main>
+
+<section id="versoes">
+<h2>As três versões</h2>
+<p class="lead">A OP define o que a rede faz no mês, por isso as três tratam o documento como um calendário. Cada ação vira um cartão com data, etapa, quem participa, local e links, e pode ir para a agenda pessoal com um toque. O texto completo continua disponível em todas, com índice, busca e tamanho de letra ajustável.</p>
+<p class="note">Os botões "como em 05/10" abrem a versão como se fosse o dia 5 de outubro. Hoje, 27/10, quase não há ações pela frente, porque a OP de novembro ainda não saiu.</p>
+<div class="vgrid">
+  <article class="vcard"><div class="shot" id="s1"><span class="n">Versão 1</span></div><div class="bd"><h3>Agenda do mês</h3>
+    <p>Abre no calendário do mês vigente, com a semana em faixa, o painel do dia e a agenda completa abaixo. Os destaques ficam em uma faixa laranja de uma linha, logo abaixo do topo, que troca de assunto a cada 7 segundos e abre uma lista lateral.</p>
+    <span class="who">Serve melhor a coordenação e a equipe gestora, que planejam o mês inteiro.</span>
+    <div class="acts"><a class="b1" href="v1/?hoje=2026-10-05">Abrir como em 05/10</a><a class="b2" href="v1/">Hoje</a></div></div></article>
+  <article class="vcard"><div class="shot" id="s2"><span class="n">Versão 2</span></div><div class="bd"><h3>Portal institucional</h3>
+    <p>Segue a estrutura do site do Marcos e do próprio PDF: faixa laranja com o número da OP, as seções I a XII em acordeão e, ao lado, os próximos 14 dias e um calendário pequeno. Os destaques entram em um carrossel baixo de cartões ilustrados, com setas.</p>
+    <span class="who">Serve melhor a quem lê a OP como documento e à comunicação da SME.</span>
+    <div class="acts"><a class="b1" href="v2/?hoje=2026-10-05">Abrir como em 05/10</a><a class="b2" href="v2/">Hoje</a></div></div></article>
+  <article class="vcard"><div class="shot" id="s3"><span class="n">Versão 3</span></div><div class="bd"><h3>Meu mês</h3>
+    <p>Aplicativo para celular. Na primeira visita a pessoa diz a função e a etapa em que atua, e a tela inicial mostra o que começa hoje, os próximos dias em linha do tempo e um botão para levar o mês para a agenda. Os destaques aparecem como bolinhas no topo, no formato dos stories.</p>
+    <span class="who">Serve melhor ao professor que consulta pelo celular entre uma aula e outra.</span>
+    <div class="acts"><a class="b1" href="v3/?hoje=2026-10-05">Abrir como em 05/10</a><a class="b2" href="v3/">Hoje</a></div></div></article>
+</div>
+<p style="margin-top:16px">Uma combinação possível para a versão final: a casca e a cara da versão 2 na página inicial, o calendário da versão 1 e o filtro por função e etapa da versão 3. Isso precisa passar pelo teste com a rede antes de ser decidido.</p>
+</section>
+
+<section id="perfis">
+<h2>Quem usa a OP</h2>
+<p>Estes perfis são hipóteses montadas a partir da própria OP (o campo "responsáveis" de cada ação) e da experiência com o site atual. O teste com a rede vai confirmar ou corrigir.</p>
+<div class="tw"><table>
+<tr><th>Perfil</th><th>O que procura na OP</th><th>Como e quando acessa</th><th>O que o site precisa fazer</th></tr>
+<tr><td>Professor(a) regente de EI, EF ou EJA</td><td>O que cai na sua turma e em que data: avaliação formativa, conselho de classe, reunião de pais, materiais como MAP e LEIA, formações.</td><td>Celular, em intervalos curtos, muitas vezes com internet fraca.</td><td>Mostrar só a sua etapa e o seu papel, com data grande e botão para a agenda.</td></tr>
+<tr><td>Coordenação pedagógica</td><td>A OP inteira, para montar pauta, planejamento e repasse ao grupo.</td><td>Computador na escola e celular; lê com calma no começo do mês.</td><td>Calendário do mês, texto completo com índice, links reunidos, impressão e compartilhamento de um trecho.</td></tr>
+<tr><td>Direção e equipe gestora</td><td>Prazos e responsabilidades da unidade: busca ativa, declarações, conselhos, PSE, envio de documentos.</td><td>Computador; volta ao site perto de cada prazo.</td><td>Prazos visíveis, quem responde por cada ação, exportação para a agenda da equipe.</td></tr>
+<tr><td>Apoio, AEE e auxiliares</td><td>Ações de inclusão e formações específicas, como o curso do Auxiliar de Atividades Educativas.</td><td>Celular.</td><td>Filtro que não esconda as ações da Gerência de Inclusão.</td></tr>
+<tr><td>CRE e técnicos da SME</td><td>A rede toda, inclusive meses anteriores, para acompanhar e responder dúvidas.</td><td>Computador, várias vezes por semana.</td><td>Busca em todos os meses e troca rápida de mês.</td></tr>
+<tr><td>Quem escreve e divulga a OP</td><td>Que o texto publicado apareça certo no site e que as notícias da rede tenham espaço.</td><td>Drive e planilha, sem programador.</td><td>Atualização automática a partir do Drive e uma planilha simples para os destaques.</td></tr>
+</table></div>
+</section>
+
+<section id="destaques">
+<h2>Destaques da rede sem tirar espaço da OP</h2>
+<p>O pedido do Marcos é ter um lugar para o que está acontecendo na rede. Nas três versões esse lugar ocupa uma única faixa da tela: uma linha de texto na versão 1, cartões de 104 px de altura na versão 2 e bolinhas de 64 px na versão 3. Cada destaque tem título, texto curto, período, tipo, link e imagem. Destaques vencidos saem sozinhos pela data de fim.</p>
+<p>Nos protótipos os seis destaques foram montados com itens da OP nº 09 (Agentes de Leitura, SAEGO Alfa, Busca Ativa, OBMEP, Jogos Educacionais e o Seminário Tessituras Pedagógicas). As imagens são ilustrações geométricas feitas com as formas do brasão. Na versão final entram fotos enviadas pela comunicação.</p>
+</section>
+
+<section id="drive">
+<h2>Atualização automática pelo Google Drive</h2>
+<p>A proposta mantém o Drive como única fonte. A equipe continua escrevendo a OP onde já escreve, e o site lê o resultado. Não há painel de administração novo para aprender.</p>
+<div class="flow"><svg viewBox="0 0 980 250" role="img" aria-label="Fluxo: OP no Drive, script de conversão, arquivo de dados, site; planilha de destaques direto para o site">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#647268"/></marker></defs>
+<g font-size="14">
+<rect x="10" y="20" width="200" height="86" rx="14" fill="#E6EFE0" stroke="#2F6E34"/><text x="110" y="52" text-anchor="middle" font-weight="600" fill="#13301A">OP no Google Drive</text><text x="110" y="74" text-anchor="middle" fill="#38483C">Documento Google</text><text x="110" y="92" text-anchor="middle" fill="#38483C">ou PDF da OP do mês</text>
+<rect x="270" y="20" width="210" height="86" rx="14" fill="#FCEBDD" stroke="#E07A2A"/><text x="375" y="52" text-anchor="middle" font-weight="600" fill="#13301A">Script de conversão</text><text x="375" y="74" text-anchor="middle" fill="#38483C">Apps Script da SME,</text><text x="375" y="92" text-anchor="middle" fill="#38483C">roda a cada 15 minutos</text>
+<rect x="540" y="20" width="200" height="86" rx="14" fill="#E6EFE0" stroke="#2F6E34"/><text x="640" y="52" text-anchor="middle" font-weight="600" fill="#13301A">Arquivo de dados</text><text x="640" y="74" text-anchor="middle" fill="#38483C">op2026.json com</text><text x="640" y="92" text-anchor="middle" fill="#38483C">seções, agenda e links</text>
+<rect x="800" y="70" width="170" height="110" rx="14" fill="#1E4620"/><text x="885" y="112" text-anchor="middle" font-weight="600" fill="#fff">Site da OP</text><text x="885" y="134" text-anchor="middle" fill="#DCE8D6">lê os dois ao abrir</text><text x="885" y="152" text-anchor="middle" fill="#DCE8D6">e guarda cópia</text>
+<rect x="10" y="150" width="200" height="86" rx="14" fill="#E3EEF8" stroke="#3F6FA8"/><text x="110" y="182" text-anchor="middle" font-weight="600" fill="#13301A">Planilha "Destaques"</text><text x="110" y="204" text-anchor="middle" fill="#38483C">uma linha por notícia,</text><text x="110" y="222" text-anchor="middle" fill="#38483C">editada pela comunicação</text>
+<path d="M210 63h56" stroke="#647268" stroke-width="2" marker-end="url(#ar)"/><path d="M480 63h56" stroke="#647268" stroke-width="2" marker-end="url(#ar)"/><path d="M740 63q40 0 56 30" stroke="#647268" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M210 193h300q240 0 286-30" stroke="#647268" stroke-width="2" fill="none" marker-end="url(#ar)"/><text x="470" y="186" text-anchor="middle" fill="#647268" font-size="13">publicada como CSV, lida direto pelo site</text>
+</g></svg></div>
+<div class="two">
+<div class="panel"><h3>O que muda para a SME</h3><p>A OP passa a ser escrita a partir de um modelo de Documento Google com títulos e tabelas padronizados (seção, ação, data, responsáveis, links). Com esse modelo a conversão é exata. Se a OP continuar saindo só em PDF, o script também consegue ler, mas com a mesma margem de erro que a extração atual tem nos meses de março e abril.</p><p>Os destaques ficam em uma planilha com sete colunas: título, texto, início, fim, tipo, link e imagem. Quem edita a planilha muda o site em poucos minutos.</p></div>
+<div class="panel"><h3>O que já está pronto no protótipo</h3><p>Os dados saíram de dentro da página e foram para um arquivo separado (<code>data/op2026.js</code>), que é o arquivo que o script vai reescrever. O site já tem os pontos de leitura do JSON e do CSV, o selo "Fonte · atualizado em" e o botão Atualizar. Falta criar o script na conta da SME e decidir onde o arquivo fica publicado: no próprio GitHub Pages ou como Web App do Apps Script.</p></div>
+</div>
+</section>
+
+<section id="agenda">
+<h2>Levar a OP para a agenda pessoal</h2>
+<p>Cada cartão tem o botão Agenda. Ele abre o Google Agenda já preenchido ou baixa um arquivo .ics, que o Outlook, o iPhone e o Android importam. Os botões "Levar para minha agenda" exportam o mês inteiro, respeitando o filtro de etapa ou de perfil escolhido. No teste com a OP de outubro, as 31 ações com data viraram 41 eventos, porque algumas têm mais de uma data (o Dia C da Correção, por exemplo, cai em 08 e 09/10).</p>
+<p>Um passo seguinte é a assinatura de calendário: um endereço fixo por etapa que o Google Agenda consulta sozinho. Assim a agenda do professor se atualiza quando a OP muda, sem exportar de novo. Isso depende do script do Drive estar funcionando.</p>
+</section>
+
+<section id="marca">
+<h2>Marca da gestão</h2>
+<p>Não encontrei o Manual da Marca da gestão "Gestão que Resolve" publicado no site da Prefeitura. O manual disponível lá é de 2019, de outra gestão. Por isso as cores dos protótipos foram tiradas do próprio logotipo: o verde-escuro do nome Goiânia, o laranja, o vermelho, os dois azuis, o verde-claro e o amarelo do brasão. A fonte é a Lexend, escolhida pela leitura fácil em tela. O texto da OP usa uma fonte serifada para lembrar o documento impresso. Tudo isso deve ser conferido com o manual quando ele chegar.</p>
+<div class="sw"><span><i style="background:#1E4620"></i>Verde-escuro</span><span><i style="background:#2F6E34"></i>Verde</span><span><i style="background:#E07A2A"></i>Laranja</span><span><i style="background:#C8321E"></i>Vermelho</span><span><i style="background:#3F6FA8"></i>Azul</span><span><i style="background:#8CC3E8"></i>Azul-céu</span><span><i style="background:#93B649"></i>Verde-claro</span><span><i style="background:#F2C230"></i>Amarelo</span></div>
+</section>
+
+<section id="pendencias">
+<h2>Limites conhecidos e perguntas para a SME</h2>
+<p>Responsáveis e local de cada ação são deduzidos por palavras-chave do PDF. O filtro "Para mim" da versão 3 pode, por isso, esconder alguma ação; o botão "Toda a rede" fica sempre à mão. EMTI, NEABI, Busca Ativa e Conexão Escola não têm agenda com datas em outubro, só texto. Os meses de março e abril ainda precisam de revisão da extração.</p>
+<ol>
+<li>A OP de novembro pode ser escrita no modelo de Documento Google?</li>
+<li>Quem na SME vai editar a planilha de destaques, e há fotos das ações para usar?</li>
+<li>O manual da marca da gestão atual pode ser enviado, com a fonte oficial e as regras de uso do logotipo em sites?</li>
+<li>O site vai ficar no GitHub Pages ou em um endereço da Prefeitura (goiania.go.gov.br)?</li>
+<li>Quais escolas e quais perfis participam do teste com a rede?</li>
+</ol>
+</section>
+</main>
+<footer>Protótipos para discussão interna. O conteúdo vem dos PDFs oficiais das OP nº 01 a 09 de 2026; em caso de dúvida, vale o PDF publicado pela SME.</footer>
+<script>
+/* miniaturas: composições simples com as cores do brasão, uma por versão */
+(function(){
+  const s1=`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%"><rect width="300" height="150" fill="#F7F4EC"/><rect width="300" height="26" fill="#1E4620"/><rect y="26" width="300" height="12" fill="#FCEBDD"/>${[0,1,2,3,4,5,6].map(i=>`<rect x="${14+i*39}" y="48" width="34" height="22" rx="5" fill="${i==2?'#1E4620':'#fff'}" stroke="#E4DFD2"/>`).join('')}${[0,1,2,3].map(r=>[0,1,2,3,4,5,6].map(i=>`<rect x="${14+i*28}" y="${78+r*17}" width="24" height="14" rx="3" fill="#fff" stroke="#E4DFD2"/>${(r+i)%3==0?`<rect x="${16+i*28}" y="${84+r*17}" width="18" height="3" rx="1" fill="${['#2F63A3','#74489F','#C8321E'][i%3]}"/>`:''}`).join('')).join('')}<rect x="214" y="78" width="74" height="66" rx="8" fill="#fff" stroke="#E4DFD2"/><rect x="220" y="84" width="20" height="20" rx="4" fill="#1E4620"/><rect x="244" y="88" width="38" height="4" rx="2" fill="#C5CEC3"/><rect x="220" y="112" width="62" height="26" rx="5" fill="#E6EFE0"/></svg>`;
+  const s2=`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%"><rect width="300" height="150" fill="#F7F4EC"/><rect width="300" height="20" fill="#fff"/><rect y="20" width="300" height="3" fill="#E07A2A"/><rect y="23" width="300" height="48" fill="#E07A2A"/><circle cx="280" cy="25" r="40" fill="#F2C230" opacity=".6"/><rect x="14" y="34" width="150" height="10" rx="3" fill="#13301A"/><rect x="14" y="50" width="110" height="5" rx="2" fill="#13301A" opacity=".4"/>${[0,1,2,3].map(i=>`<rect x="${14+i*70}" y="78" width="64" height="24" rx="5" fill="#fff" stroke="#E4DFD2"/><rect x="${14+i*70}" y="78" width="20" height="24" rx="5" fill="${['#E07A2A','#3F6FA8','#C8321E','#93B649'][i]}"/>`).join('')}${[0,1,2].map(i=>`<rect x="14" y="${108+i*13}" width="180" height="10" rx="3" fill="#fff" stroke="#E4DFD2"/><rect x="17" y="${110+i*13}" width="12" height="6" rx="2" fill="#1E4620"/>`).join('')}<rect x="204" y="108" width="84" height="36" rx="5" fill="#fff" stroke="#E4DFD2"/></svg>`;
+  const s3=`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%"><rect width="300" height="150" fill="#EDE9DF"/><rect x="100" y="6" width="100" height="160" rx="14" fill="#F7F4EC" stroke="#D3CCBA"/><rect x="100" y="6" width="100" height="40" rx="14" fill="#1E4620"/><circle cx="188" cy="12" r="16" fill="#E07A2A"/><rect x="108" y="30" width="56" height="7" rx="2" fill="#fff"/>${[0,1,2,3].map(i=>`<circle cx="${116+i*22}" cy="60" r="9" fill="#fff" stroke="${['#E07A2A','#93B649','#8CC3E8','#F2C230'][i]}" stroke-width="3"/>`).join('')}<rect x="106" y="76" width="88" height="30" rx="6" fill="#fff" stroke="#E4DFD2"/><rect x="110" y="80" width="18" height="22" rx="4" fill="#E07A2A"/><path d="M110 114v40" stroke="#D3CCBA" stroke-width="2"/><rect x="116" y="112" width="78" height="16" rx="4" fill="#fff" stroke="#E4DFD2"/><rect x="116" y="132" width="78" height="16" rx="4" fill="#fff" stroke="#E4DFD2"/></svg>`;
+  document.getElementById('s1').insertAdjacentHTML('afterbegin',s1);
+  document.getElementById('s2').insertAdjacentHTML('afterbegin',s2);
+  document.getElementById('s3').insertAdjacentHTML('afterbegin',s3);
+})();
+</script>
+</body>
+</html>

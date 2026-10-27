@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Portal da OP · SME Goiânia</title>
+<meta name="description" content="Versão 2: portal institucional da Orientação Pedagógica, com destaques da rede, próximos prazos e as seções I a XII do documento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/brand.css">
+<script>try{var t=localStorage.getItem('opthm');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+/* ===== Versão 2 · Portal institucional ===== */
+.top{background:var(--surface);border-bottom:4px solid var(--laranja);position:sticky;top:0;z-index:40}
+.top-in{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.top .brandlogo{height:52px;padding:4px 0;background:transparent}
+:root[data-theme="dark"] .top .brandlogo{background:#fff;padding:4px 8px}
+.top .sep{width:1px;height:34px;background:var(--line2)}
+.top .org{font:500 13px/1.25 var(--sans);color:var(--ink2)}
+.top .org b{display:block;color:var(--verde-800);font-weight:600}
+:root[data-theme="dark"] .top .org b{color:var(--ink)}
+.nav{margin-left:auto;display:flex;gap:2px}
+.nav a{display:flex;align-items:center;gap:7px;padding:9px 12px;border-radius:10px;font:500 14px var(--sans);color:var(--ink2)}
+.nav a:hover{background:var(--verde-100)}
+.nav a[aria-current="true"]{color:var(--verde-800);background:var(--verde-100);font-weight:600}
+:root[data-theme="dark"] .nav a[aria-current="true"]{color:var(--ink)}
+.tbtn{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line)}
+@media (max-width:899px){.top .sep,.top .org{display:none}.nav{position:fixed;left:0;right:0;bottom:0;margin:0;background:var(--surface);border-top:1px solid var(--line);justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:50}.nav a{flex-direction:column;gap:2px;font-size:11.5px;padding:6px 8px}.nav a .ic{width:22px;height:22px}.top .tbtn{margin-left:auto}body{padding-bottom:70px}}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+/* faixa laranja da OP */
+.hero{background:var(--laranja);color:#1F1206;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-80px;width:340px;height:340px;border-radius:50%;background:#F2C230;opacity:.55}
+.hero::before{content:"";position:absolute;right:120px;bottom:-120px;width:240px;height:240px;border-radius:50%;background:#2F6E34;opacity:.25}
+.hero .wrap{position:relative;z-index:1;padding-top:26px;padding-bottom:24px}
+.eyebrow{font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.hero h1{margin:6px 0 6px;font:600 clamp(30px,5.4vw,52px)/1.02 var(--sans);letter-spacing:-.03em;color:#13301A}
+.hero h1 span{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.08)}
+.hero p{margin:0;max-width:760px;font-size:15.5px;line-height:1.5}
+@media (max-width:640px){.hero p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:14px}.hero .wrap{padding-top:18px;padding-bottom:18px}.hsync{font-size:12px}}
+.hbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px}
+.hbtn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:10px 15px;font:600 14px var(--sans);background:#13301A;color:#fff}
+.hbtn.light{background:#fff;color:#13301A}
+.hbtn:hover{filter:brightness(1.1)}
+.hsync{display:flex;align-items:center;gap:8px;font-size:13px;background:rgba(19,48,26,.12);border-radius:10px;padding:8px 12px}
+.months{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:16px}
+.months::-webkit-scrollbar{display:none}
+.months a{flex:none;padding:6px 11px;border-radius:9px;font:500 13px var(--sans);background:rgba(255,255,255,.35);color:#13301A}
+.months a[aria-current="true"]{background:#13301A;color:#fff}
+
+/* destaques em carrossel baixo */
+.dest{margin-top:22px}
+.dh{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.dh h2{margin:0;font:600 18px var(--sans);display:flex;align-items:center;gap:8px}
+.dh h2 .ic{color:var(--laranja-texto)}
+.dh .ctl{margin-left:auto;display:flex;gap:6px}
+.dh .ctl button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.rail::-webkit-scrollbar{display:none}
+@media (min-width:1100px){.rail{grid-auto-columns:calc((100% - 36px)/4)}}
+.dcard{scroll-snap-align:start;display:grid;grid-template-columns:92px minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-height:104px;transition:.15s}
+.dcard:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
+.dcard .aw{height:100%}
+.dcard>div:last-child{padding:10px 12px;min-width:0}
+.dcard small{font:600 10.5px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--laranja-texto)}
+.dcard b{display:block;font:600 14.5px/1.25 var(--sans);margin:3px 0}
+.dcard p{margin:0;font-size:13px;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* corpo em duas colunas */
+.body{display:grid;gap:26px;margin-top:28px;padding-bottom:60px}
+@media (min-width:1040px){.body{grid-template-columns:minmax(0,1fr) 360px;align-items:start}.aside{position:sticky;top:96px}}
+.bh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 12px}
+.bh h2{margin:0;font:600 20px var(--sans)}
+.bh small{color:var(--muted);font-size:13px}
+.acc{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:10px;overflow:hidden}
+.acc>summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:flex-start;padding:16px}
+.acc>summary::-webkit-details-marker{display:none}
+.rn{flex:none;min-width:44px;height:34px;border-radius:9px;background:var(--verde-800);color:#fff;display:grid;place-items:center;font:600 14px var(--sans);padding:0 8px}
+.acc[open] .rn{background:var(--laranja);color:#1F1206}
+.acc h3{margin:0;font:600 16px/1.3 var(--sans)}
+.acc .sm{margin:4px 0 0;color:var(--muted);font-size:13.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.acc .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.acc summary>.ic{margin-left:auto;flex:none;color:var(--muted);transition:transform .15s;margin-top:6px}
+.acc[open] summary>.ic{transform:rotate(180deg)}
+.acc .in{padding:0 16px 16px}
+.acc .in .cards{grid-template-columns:1fr}
+@media (min-width:760px){.acc .in .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rd{display:inline-flex;align-items:center;gap:8px;margin-top:12px;border-radius:12px;padding:10px 14px;font:600 14px var(--sans);border:1.5px solid var(--verde-600);color:var(--verde-600)}
+:root[data-theme="dark"] .rd{border-color:var(--brand);color:var(--brand)}
+
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.box h2{margin:0 0 10px;font:600 17px var(--sans);display:flex;align-items:center;gap:8px}
+.box h2 .ic{color:var(--verde-600)}
+.nx{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;padding:9px 0;border-top:1px solid var(--line);align-items:start}
+.nx:first-of-type{border-top:0}
+.nx .d{text-align:center;border-radius:10px;background:var(--acbg);color:var(--ac);padding:5px 0}
+.nx .d b{display:block;font:600 18px/1 var(--sans)}.nx .d span{font:600 10px var(--sans);letter-spacing:.08em}
+.nx strong{display:block;font:500 14px/1.3 var(--sans)}
+.nx small{color:var(--muted);font-size:12.5px}
+.nx:hover strong{text-decoration:underline}
+.mini .cg{gap:3px}.mini .cd{min-height:38px;padding:3px;border-radius:8px}.mini .cd .pills,.mini .cd .more{display:none!important}.mini .cd .dots{display:flex!important}.mini .cg .h .l{display:none}.mini .cg .h .s{display:inline!important}
+.xbtn{display:flex;width:100%;justify-content:center;align-items:center;gap:8px;border-radius:12px;padding:11px 14px;font:600 14px var(--sans);background:var(--laranja);color:#1F1206;margin-top:12px}
+
+/* calendário completo */
+.calwrap{display:grid;gap:16px;margin-top:6px;padding-bottom:60px}
+@media (min-width:1100px){.calwrap{grid-template-columns:minmax(0,1.7fr) minmax(330px,1fr);align-items:start}.dpanel{position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto}}
+.calbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px}
+.dpanel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
+.dpanel h3{margin:0 0 10px;font:600 17px var(--sans)}
+.ptitle{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:24px 0 14px}
+.ptitle h1{margin:0;font:600 clamp(24px,4vw,34px) var(--sans);letter-spacing:-.02em;flex:1}
+.gbtn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:9px 14px;font:600 14px var(--sans);border:1.5px solid var(--verde-600);color:var(--verde-600);background:var(--surface)}
+:root[data-theme="dark"] .gbtn{border-color:var(--brand);color:var(--brand)}
+.obtn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:9px 14px;font:600 14px var(--sans);background:var(--laranja);color:#1F1206}
+
+/* leitor */
+.rgrid{display:grid;gap:24px;padding-bottom:60px}
+@media (min-width:1100px){.rgrid{grid-template-columns:280px minmax(0,1fr)}.rside{position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto}.rmain .toc-inline{display:none}}
+.rside{display:none}@media (min-width:1100px){.rside{display:block}}
+.rside a{display:flex;gap:8px;padding:7px 10px;border-radius:9px;font-size:13.5px;color:var(--ink2);line-height:1.3}
+.rside a:hover{background:var(--surface)}
+.rside a[aria-current="true"]{background:var(--verde-100);color:var(--verde-800);font-weight:600}
+:root[data-theme="dark"] .rside a[aria-current="true"]{color:var(--ink)}
+.rside a i{font-style:normal;font-weight:600;min-width:30px;color:var(--muted)}
+.rside hr{border:0;border-top:1px solid var(--line);margin:10px 0}
+.rside .t a{border-left:2px solid var(--line);border-radius:0;padding-left:12px}
+.rside .t a.l2{padding-left:22px;color:var(--muted)}
+.rtools{display:flex;gap:6px;flex-wrap:wrap}
+.rtools button{height:40px;min-width:40px;padding:0 10px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;gap:4px;font:600 13px var(--sans);color:var(--ink2)}
+.res{display:block;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--ac);border-radius:14px;padding:13px 15px;margin-top:10px}
+.res b{display:flex;gap:8px;align-items:center;font:600 15px var(--sans)}.res b .ic{color:var(--ac)}
+.res p{margin:5px 0 0;color:var(--muted);font-size:13.5px}
+.sform{display:flex;gap:8px;margin:0 0 6px}
+.sform input{flex:1;height:48px;border-radius:12px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);padding:0 14px;font:400 16px var(--sans)}
+footer{border-top:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:12.5px}
+footer .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
+footer img{height:38px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brandlogo" href="#/" aria-label="Início"><img src="../assets/logo-goiania.jpeg" alt="Prefeitura de Goiânia · Gestão que Resolve"></a>
+  <span class="sep"></span><span class="org"><b>Orientação Pedagógica</b>Secretaria Municipal de Educação</span>
+  <nav class="nav" id="nav" aria-label="Principal"></nav>
+  <button class="tbtn" id="theme" aria-label="Alternar tema claro e escuro"></button>
+</div></header>
+<main id="main"></main>
+<footer><div class="wrap"><span>Protótipo · versão 2 · Texto organizado a partir dos PDFs oficiais das OP nº 01 a 09 de 2026. Em caso de dúvida, vale o PDF publicado pela SME.</span><img src="../assets/logo-goiania.jpeg" alt=""></div></footer>
+<script src="../data/op2026.js"></script>
+<script src="../data/destaques.js"></script>
+<script src="../data/destaques-instagram.js"></script>
+<script src="../shared/op-core.js"></script>
+<script>
+(function(){
+'use strict';
+const C=OPCore,{$,$$,esc,ic,pad,MON,MON3,WD,WD3}=C;
+const ROM=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV'];
+const S={day:null,mid:null,q:'',hl:''};
+const H=(mid,a,b)=>'#/'+mid+(a?'/'+a:'')+(b?'/'+b:'');
+const M=id=>C.DB.find(m=>m.id===id);
+function route(){
+  const p=location.hash.replace(/^#\/?/,'').split('/').filter(Boolean);
+  if(p[0]==='busca')return {view:'search',mid:C.currentMonth().id,q:decodeURIComponent(p[1]||'')};
+  let mid=p[0]; if(!M(mid))mid=C.currentMonth().id; const m=M(mid);
+  if(p[1]==='cal')return {mid,view:'cal'};
+  if(p[1]&&m.sections.some(s=>s.key===p[1]))return {mid,view:'sec',sec:p[1],hid:p[2]||null};
+  return {mid,view:'home'};
+}
+function nav(R){
+  $('#nav').innerHTML=[['home','#/'+R.mid,'home','Início'],['cal','#/'+R.mid+'/cal','cal','Calendário'],['sec','#/'+R.mid+'/'+C.DB.find(m=>m.id===R.mid).sections[0].key,'book','OP completa'],['search','#/busca','search','Buscar']]
+   .map(([v,h,i,l])=>`<a href="${h}" aria-current="${R.view===v}">${ic(i)}<span>${l}</span></a>`).join('');
+}
+function monthsBar(m,suffix){const cur=C.currentMonth().id;return `<nav class="months" aria-label="Meses">${C.DB.map(x=>`<a href="#/${x.id}${suffix||''}" aria-current="${x.id===m.id}">${esc(x.name)}${x.id===cur?' · vigente':''}</a>`).join('')}</nav>`}
+
+function destRail(){
+  const L=C.destaques(); if(!L.length)return '';
+  return `<section class="dest" aria-label="Na rede"><div class="dh"><h2>${ic('megaphone')}Na rede agora</h2><div class="ctl"><button id="dl" aria-label="Anterior">${ic('chevL')}</button><button id="dr" aria-label="Próximo">${ic('chevR')}</button></div></div>
+    <div class="rail" id="rail">${L.map((d,i)=>{const r=C.destRoute(d);return `<a class="dcard" href="${r.mid?H(r.mid,r.sec):esc(d.insta||'#')}"${!r.mid&&d.insta?' target="_blank" rel="noopener"':''}><span class="aw">${C.pic(d,i)}</span><div><small>${d.fonte?esc(d.fonte)+' · ':''}${esc(d.tipo)} · ${d.inicio===d.fim?C.fmtShort(d.inicio):C.fmtShort(d.inicio)+'–'+C.fmtShort(d.fim)}</small><b>${esc(d.titulo)}</b><p>${esc(d.texto)}</p></div></a>`}).join('')}</div></section>`;
+}
+function bindRail(){
+  const r=$('#rail'); if(!r)return; const step=()=>r.querySelector('.dcard').offsetWidth+12;
+  $('#dl').onclick=()=>r.scrollBy({left:-step(),behavior:'smooth'}); $('#dr').onclick=()=>r.scrollBy({left:step(),behavior:'smooth'});
+  clearInterval(bindRail.t); bindRail.t=setInterval(()=>{if(!document.body.contains(r)){clearInterval(bindRail.t);return}if(r.matches(':hover'))return;const end=r.scrollLeft+r.clientWidth>=r.scrollWidth-4;r.scrollTo({left:end?0:r.scrollLeft+step(),behavior:'smooth'})},8000);
+}
+
+function home(m,R){
+  const evs=C.parseEvents(m), upd=C.updatedLabel(), cm=C.currentMonth();
+  const from=m.id===cm.id?C.NOW:new Date(m.year,m.mnum-1,1);
+  const nxt=C.upcoming(evs,from,14).slice(0,8);
+  const G=C.monthGrid(m,{});
+  const intro=`A Secretaria Municipal de Educação de Goiânia, por meio da Superintendência Pedagógica, orienta as ações pedagógicas das unidades educacionais no período de ${esc(m.period||'')}.`;
+  $('#main').innerHTML=`<section class="hero"><div class="wrap">
+    <div class="eyebrow">Superintendência Pedagógica · ${m.year||2026}</div>
+    <h1>Orientação Pedagógica <span>nº ${pad(m.op)}</span> · ${esc(m.name)}</h1>
+    <p>${intro}</p>
+    <div class="hbar"><a class="hbtn" href="${H(m.id,'cal')}">${ic('cal')}Ver calendário do mês</a><button class="hbtn light" id="pdf">${ic('file')}PDF oficial</button>
+    <span class="hsync"><span class="syncdot"></span>Fonte: ${esc(C.META.fonte||'')}${upd?' · atualizado em '+upd:''}</span></div>
+    ${monthsBar(m)}</div></section>
+    <div class="wrap">${destRail()}
+    <div class="body"><section><div class="bh"><h2>Seções da OP</h2><small>${m.sections.length} seções · ${evs.length} ações</small></div>
+      ${m.sections.map((s,i)=>{const L=evs.filter(e=>e.s===s),d=C.sectionDoc(m,s),pl=(s.plain||'').replace(/\s+/g,' ').trim();
+        return `<details class="acc tone-${s.color}" id="a-${s.key}"><summary><span class="rn">${ROM[i]}</span><div><h3>${esc(s.title)}</h3>${pl?`<p class="sm">${esc(pl.slice(0,170))}</p>`:''}<div class="meta">${L.length?`<span class="chip">${ic('cal')}${L.length} ${L.length===1?'ação':'ações'}</span>`:''}${d.links.length?`<span class="chip ghost">${ic('link')}${d.links.length} links</span>`:''}${d.toc.length?`<span class="chip ghost">${ic('list')}${d.toc.length} tópicos</span>`:''}</div></div>${ic('down')}</summary>
+        <div class="in" data-k="${s.key}"></div></details>`}).join('')}
+    </section>
+    <aside class="aside"><div class="box"><h2>${ic('flag')}${m.id===cm.id?'Próximos 14 dias':'Primeiras datas do mês'}</h2>
+      ${nxt.map(x=>`<a class="nx tone-${x.ev.s.color}" href="${H(m.id,x.ev.s.key)}"><span class="d"><b>${pad(x.date.getDate())}</b><span>${MON3[x.date.getMonth()]}</span></span><span><strong>${esc(x.ev.title)}</strong><small>${esc(C.sShort(x.ev.s.key))} · ${x.ongoing?'em andamento até '+pad(x.end.getDate())+'/'+pad(x.end.getMonth()+1):C.rangeLabel(x)}</small></span></a>`).join('')||'<p class="muted">Nada marcado.</p>'}
+      <button class="xbtn" id="exp">${ic('calplus')}Adicionar o mês à minha agenda</button></div>
+      <div class="box mini"><h2>${ic('cal')}${esc(m.name)}</h2>${G.html}<a class="gbtn" style="margin-top:10px;width:100%;justify-content:center" href="${H(m.id,'cal')}">Abrir calendário completo</a></div></aside></div></div>`;
+  $$('#main details.acc').forEach(dt=>dt.addEventListener('toggle',()=>{const box=$('.in',dt);if(!dt.open||box.dataset.done)return;box.dataset.done=1;const s=m.sections.find(x=>x.key===box.dataset.k),L=evs.filter(e=>e.s===s),d=C.sectionDoc(m,s);
+    box.innerHTML=(L.length?`<div class="cards">${L.map(e=>C.card(e,{compact:true,href:H})).join('')}</div>`:'<p class="muted" style="margin:0">Esta seção não tem agenda com datas. Leia as orientações completas.</p>')+(d.has?`<a class="rd" href="${H(m.id,s.key)}">${ic('book')}Ler a seção ${ROM[m.sections.indexOf(s)]} completa${ic('arrow')}</a>`:'');C.bindCards(box)}));
+  $$('#main .mini [data-d]').forEach(b=>b.onclick=()=>{S.mid=m.id;S.day=+b.dataset.d;location.hash=H(m.id,'cal')});
+  $('#exp').onclick=e=>C.addMenu(e.currentTarget,evs.filter(x=>x.rg.length),'OP '+pad(m.op)+' · '+m.name);
+  $('#pdf').onclick=()=>C.toast('Na versão final, este botão abre o PDF da OP no Drive da SME');
+  bindRail();
+  const cur=$('.months a[aria-current="true"]'); if(cur){const p=cur.parentNode;p.scrollLeft=cur.offsetLeft-p.clientWidth/2}
+}
+function cal(m,R){
+  const G0=C.monthGrid(m,{});
+  if(S.mid!==m.id||!S.day){S.mid=m.id;S.day=(G0.today&&G0.byDay[G0.today])?G0.today:(G0.dayList.find(d=>d>=G0.today)||G0.dayList[0])}
+  const G=C.monthGrid(m,{sel:S.day}), arr=G.byDay[S.day]||[], wd=new Date(m.year,m.mnum-1,S.day).getDay();
+  $('#main').innerHTML=`<div class="wrap"><div class="ptitle"><h1>Calendário · ${esc(m.name)} ${m.year||2026}</h1><button class="obtn" id="exp">${ic('calplus')}Levar para minha agenda</button></div>${monthsBar(m,'/cal').replace('class="months"','class="months" style="margin:0 0 14px"')}
+    <div class="calwrap"><div class="calbox">${G.html}</div><aside class="dpanel" id="dp"><h3>${WD[wd]}, ${S.day} de ${MON[m.mnum-1]}</h3>${arr.length?`<div class="cards">${arr.map(x=>C.card(x.e,{src:true,href:H})).join('')}</div>`:'<p class="empty">Nada marcado neste dia.</p>'}
+    ${G.und.length?`<details class="rblock"><summary>${ic('repeat')}Ações contínuas do mês <span class="chip">${G.und.length}</span><span class="chev">${ic('chevR')}</span></summary><div class="cards">${G.und.map(e=>C.card(e,{src:true,compact:true,href:H})).join('')}</div></details>`:''}</aside></div></div>`;
+  $$('#main [data-d]').forEach(b=>b.onclick=()=>{S.day=+b.dataset.d;cal(m,R);if(innerWidth<1100)$('#dp').scrollIntoView({behavior:'smooth'})});
+  $('#exp').onclick=e=>C.addMenu(e.currentTarget,C.parseEvents(m).filter(x=>x.rg.length),'OP '+pad(m.op)+' · '+m.name);
+  C.bindCards($('#main'));
+}
+function sec(m,R){
+  const s=m.sections.find(x=>x.key===R.sec), i=m.sections.indexOf(s), r=C.readerHTML(m,s,H);
+  $('#main').innerHTML=`<div class="wrap tone-${s.color}"><div class="ptitle"><h1><span class="muted" style="font-weight:500">${ROM[i]} ·</span> ${esc(s.title)}</h1><div class="rtools"><button id="fm" aria-label="Diminuir texto">A−</button><button id="fp" aria-label="Aumentar texto">A+</button><button id="sh" aria-label="Compartilhar">${ic('share')}</button><button id="pr" aria-label="Imprimir">${ic('print')}</button></div></div>
+   <div class="rgrid"><nav class="rside" aria-label="Seções">${m.sections.map((x,j)=>`<a href="${H(m.id,x.key)}" aria-current="${x===s}"><i>${ROM[j]}</i>${esc(x.title)}</a>`).join('')}${r.toc.length?`<hr><div class="t">${r.toc.map(h=>`<a href="${H(m.id,s.key,h.id)}" class="${h.lvl===2?'l2':''}">${esc(h.t)}</a>`).join('')}</div>`:''}</nav>
+   <div class="rmain"><p class="muted" style="margin:0">OP nº ${pad(m.op)} · ${esc(m.name)} ${m.year||2026}</p>${r.html}${m.sections[i+1]?`<p style="margin-top:26px"><a class="gbtn" href="${H(m.id,m.sections[i+1].key)}">Seção ${ROM[i+1]}: ${esc(m.sections[i+1].title)}${ic('arrow')}</a></p>`:''}</div></div></div>`;
+  const f=C.fontTools(); $('#fm').onclick=f.minus; $('#fp').onclick=f.plus; $('#pr').onclick=()=>print(); $('#sh').onclick=()=>C.share(s.title);
+  C.bindReader($('#main'),m,s,R.hid,S.hl); S.hl='';
+}
+function search(R){
+  const q=R.q||'', hits=q.length>1?C.search(q):[];
+  $('#main').innerHTML=`<div class="wrap" style="padding-bottom:60px"><div class="ptitle"><h1>Buscar nas orientações</h1></div>
+   <form class="sform" id="sf"><input id="q" type="search" value="${esc(q)}" placeholder="Ex.: conselho de classe, LEIA, MAP" aria-label="Termo de busca" enterkeyhint="search"><button class="obtn" type="submit">${ic('search')}Buscar</button></form>
+   ${q?`<p class="muted">${hits.length} ${hits.length===1?'seção encontrada':'seções encontradas'} em todos os meses</p>`:'<p class="muted">A busca percorre o texto completo das OP de janeiro a outubro.</p>'}
+   ${hits.slice(0,60).map(h=>`<a class="res tone-${h.s.color}" href="${H(h.m.id,h.s.key)}" data-q><b>${ic(C.sIco(h.s.key))}${esc(h.m.name)} · ${esc(h.s.title)}</b><p>${h.snip}</p></a>`).join('')}</div>`;
+  $('#sf').onsubmit=e=>{e.preventDefault();location.hash='#/busca/'+encodeURIComponent($('#q').value.trim())};
+  $$('#main [data-q]').forEach(a=>a.onclick=()=>{S.hl=q});
+  if(!q)$('#q').focus();
+}
+let last='';
+function render(){
+  const R=route(), m=M(R.mid); nav(R);
+  const key=R.view+R.mid+(R.sec||'')+(R.q||'');
+  if(key===last&&R.view==='sec'&&R.hid){const t=document.getElementById(R.hid);if(t)t.scrollIntoView({behavior:'smooth'});return}
+  const ch=key!==last; last=key;
+  if(R.view==='search')search(R); else ({home,cal,sec})[R.view](m,R);
+  if(ch&&!R.hid)scrollTo(0,0);
+}
+C.theme($('#theme'));
+addEventListener('hashchange',render); render();
+})();
+</script>
+</body>
+</html>

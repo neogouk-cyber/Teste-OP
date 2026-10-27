@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1E4620">
+<title>Meu mês na rede · SME Goiânia</title>
+<meta name="description" content="Versão 3: aplicativo pessoal. Cada profissional escolhe função e etapa e vê só o que vale para si no mês.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/brand.css">
+<script>try{var t=localStorage.getItem('opthm');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+/* ===== Versão 3 · Meu mês (app) ===== */
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+.app{max-width:760px;margin:0 auto;padding:0 16px}
+.top{background:var(--verde-800);color:#fff;padding:12px 0 18px;border-radius:0 0 26px 26px;position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;right:-50px;top:-60px;width:200px;height:200px;border-radius:50%;background:var(--laranja);opacity:.9}
+.top::before{content:"";position:absolute;right:90px;top:40px;width:70px;height:70px;border-radius:50%;background:var(--amarelo);opacity:.9;z-index:1}
+.top .app{position:relative;z-index:2}
+.tr{display:flex;align-items:center;gap:10px}
+.tr .brandlogo{height:40px;padding:4px 8px}
+.tr .sp{flex:1}
+.ib{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.14);color:#fff}
+.hello{margin-top:16px}
+.hello small{font:500 13px var(--sans);opacity:.8}
+.hello h1{margin:2px 0 0;font:600 clamp(26px,6vw,36px)/1.05 var(--sans);letter-spacing:-.02em}
+.who{display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:rgba(255,255,255,.14);border-radius:999px;padding:6px 12px 6px 8px;font:500 13px var(--sans);color:#fff}
+.who .ic{width:18px;height:18px}
+
+/* destaques em bolinhas (stories): uma linha só */
+.stories{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:14px 2px 4px;margin:0 -16px;padding-left:16px;padding-right:16px}
+.stories::-webkit-scrollbar{display:none}
+.st{flex:none;width:68px;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.st .ring{width:64px;height:64px;border-radius:50%;padding:3px;background:conic-gradient(var(--laranja),var(--amarelo),var(--lima),var(--ceu),var(--laranja))}
+.st.seen .ring{background:var(--line2)}
+.st .ring span{display:block;width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid var(--bg)}
+.st small{font:500 11px/1.2 var(--sans);color:var(--ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.storyv{position:fixed;inset:0;z-index:90;background:#0B160E;color:#fff;display:flex;flex-direction:column}
+.storyv .bars{display:flex;gap:4px;padding:12px 12px 0}
+.storyv .bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden}
+.storyv .bars i b{display:block;height:100%;width:0;background:#fff}
+.storyv .bars i.done b{width:100%}
+.storyv .bars i.on b{animation:fill 6s linear forwards}
+@keyframes fill{to{width:100%}}
+.storyv header{display:flex;align-items:center;gap:10px;padding:12px}
+.storyv header small{opacity:.8}
+.storyv header button{margin-left:auto;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.12)}
+.storyv .pic{flex:1;max-height:48vh;margin:0 12px;border-radius:20px;overflow:hidden}
+.storyv .txt{padding:18px 18px calc(24px + env(safe-area-inset-bottom,0px));max-width:640px;margin:0 auto;width:100%}
+.storyv .txt small{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#FFC08A}
+.storyv .txt h2{margin:6px 0;font:600 26px/1.15 var(--sans)}
+.storyv .txt p{margin:0 0 16px;font-size:16px;opacity:.9}
+.storyv .go{display:inline-flex;align-items:center;gap:8px;background:var(--laranja);color:#1F1206;border-radius:12px;padding:11px 16px;font:600 15px var(--sans)}
+.storyv .pic.ph{max-height:58vh;background:#000;display:flex;justify-content:center}
+.storyv .pic.ph img{object-fit:contain}
+.storyv .gos{display:flex;flex-wrap:wrap;gap:8px}
+.storyv .go.ig{background:rgba(255,255,255,.14);color:#fff}
+.storyv .tap{position:absolute;top:80px;bottom:200px;width:35%;z-index:1}
+.storyv .tap.l{left:0}.storyv .tap.r{right:0}
+
+.blk{margin-top:22px}
+.bt{display:flex;align-items:baseline;gap:10px;justify-content:space-between;margin-bottom:10px}
+.bt h2{margin:0;font:600 19px var(--sans)}
+.bt small{color:var(--muted);font-size:13px}
+.today{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;grid-template-columns:70px minmax(0,1fr);gap:14px;box-shadow:var(--sh1)}
+.today .big{align-self:start;min-height:76px;border-radius:16px;background:var(--laranja);color:#1F1206;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0}
+.today .big b{font:600 32px/1 var(--sans)}.today .big span{font:600 11px var(--sans);letter-spacing:.1em}
+.today h3{margin:0 0 4px;font:600 16px var(--sans)}
+.today ul{margin:6px 0 0;padding:0;list-style:none}
+.today li a{display:flex;gap:8px;align-items:flex-start;padding:6px 0;font-size:14.5px;line-height:1.35}
+.today li i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--ac);margin-top:5px}
+.ong{margin-top:10px;border-top:1px dashed var(--line2);padding-top:8px}
+.ong summary{cursor:pointer;display:flex;align-items:center;gap:8px;font:500 13.5px var(--sans);color:var(--ink2);list-style:none}
+.ong summary::-webkit-details-marker{display:none}
+.ong summary .ic{color:var(--verde-600)}
+.tl{position:relative;padding-left:18px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line2);border-radius:2px}
+.tday{position:relative;margin-bottom:14px}
+.tday::before{content:"";position:absolute;left:-18px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--verde-600)}
+.tday.is-today::before{border-color:var(--laranja);background:var(--laranja)}
+.tday>h3{margin:0 0 8px;font:600 14px var(--sans);color:var(--ink2)}
+.tday>h3 em{font-style:normal;color:var(--laranja-texto);margin-left:6px}
+.more{display:flex;width:100%;justify-content:center;align-items:center;gap:8px;border:1px dashed var(--line2);border-radius:14px;padding:12px;font:500 14px var(--sans);color:var(--ink2);margin-top:6px}
+.cta2{display:flex;align-items:center;gap:12px;background:var(--verde-100);border:1px solid color-mix(in srgb,var(--verde-600) 30%,var(--line));border-radius:18px;padding:14px;margin-top:18px}
+.cta2 .ic{width:28px;height:28px;color:var(--verde-600);flex:none}
+.cta2 b{display:block;font:600 15px var(--sans)}
+.cta2 small{color:var(--ink2);font-size:13px}
+.cta2 button{margin-left:auto;flex:none;background:var(--verde-800);color:#fff;border-radius:12px;padding:10px 14px;font:600 14px var(--sans)}
+:root[data-theme="dark"] .cta2 button{background:var(--brand);color:#0D1710}
+.toggle{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:3px;width:max-content}
+.toggle button{padding:7px 12px;border-radius:9px;font:500 13px var(--sans);color:var(--ink2)}
+.toggle button[aria-pressed="true"]{background:var(--verde-800);color:#fff}
+
+/* barra inferior */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--surface);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-around}
+.tabbar a{flex:1;max-width:120px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:12px;font:500 11.5px var(--sans);color:var(--muted)}
+.tabbar a .ic{width:23px;height:23px}
+.tabbar a[aria-current="true"]{color:var(--verde-800);background:var(--verde-100)}
+:root[data-theme="dark"] .tabbar a[aria-current="true"]{color:var(--ink)}
+@media (min-width:1000px){
+  body{padding-bottom:0;padding-left:96px}
+  .tabbar{top:0;right:auto;width:96px;flex-direction:column;justify-content:flex-start;gap:6px;border-top:0;border-right:1px solid var(--line);padding-top:24px}
+  .tabbar a{max-width:none;padding:10px 4px}
+}
+
+/* páginas internas */
+.ph{display:flex;align-items:center;gap:10px;padding:18px 0 6px}
+.ph h1{margin:0;font:600 26px var(--sans);flex:1}
+.ph .ib{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.mrow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:6px -16px 12px;padding:0 16px}
+.mrow::-webkit-scrollbar{display:none}
+.mrow a{flex:none;padding:6px 11px;border-radius:9px;border:1px solid var(--line);background:var(--surface);font:500 13px var(--sans)}
+.mrow a[aria-current="true"]{background:var(--verde-800);color:#fff;border-color:var(--verde-800)}
+.calbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:8px}
+.slist a{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px}
+.slist a .bi{width:40px;height:40px;border-radius:12px;background:var(--acbg);color:var(--ac);display:grid;place-items:center;flex:none}
+.slist a b{display:block;font:600 15px/1.25 var(--sans)}
+.slist a small{color:var(--muted);font-size:12.5px}
+.slist a>.ic:last-child{margin-left:auto;color:var(--muted)}
+.slist h3{margin:18px 0 8px;font:600 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mine{font:600 10.5px var(--sans);background:var(--laranja-100);color:var(--laranja-texto);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:1px}
+.rtools{display:flex;gap:6px}
+.rtools button{height:40px;min-width:40px;padding:0 10px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font:600 13px var(--sans);color:var(--ink2);display:grid;place-items:center}
+.sinput{width:100%;height:50px;border-radius:14px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);padding:0 16px;font:400 16px var(--sans)}
+.res{display:block;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--ac);border-radius:14px;padding:12px 14px;margin-top:10px}
+.res b{display:flex;gap:8px;align-items:center;font:600 14.5px var(--sans)}.res b .ic{color:var(--ac)}
+.res p{margin:5px 0 0;color:var(--muted);font-size:13.5px}
+
+/* perfil */
+.sheet{position:fixed;inset:0;z-index:85;background:rgba(10,20,12,.5);display:flex;align-items:flex-end;justify-content:center}
+.sheet>div{background:var(--bg);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:24px 24px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px))}
+@media (min-width:700px){.sheet{align-items:center}.sheet>div{border-radius:24px}}
+.sheet h2{margin:0 0 4px;font:600 22px var(--sans)}
+.sheet p{margin:0 0 14px;color:var(--ink2);font-size:14.5px}
+.sheet h3{margin:16px 0 8px;font:600 14px var(--sans)}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);text-align:left;font:500 15px var(--sans)}
+.opt .ic{width:22px;height:22px;color:var(--verde-600)}
+.opt[aria-pressed="true"]{border-color:var(--verde-600);background:var(--verde-100)}
+.opt[aria-pressed="true"]::after{content:"✓";margin-left:auto;font-weight:700;color:var(--verde-600)}
+.sheet .ok{margin-top:18px;width:100%;background:var(--laranja);color:#1F1206;border-radius:14px;padding:14px;font:600 16px var(--sans)}
+.sheet .skip{margin-top:8px;width:100%;padding:10px;font:500 14px var(--sans);color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="view"></div>
+<nav class="tabbar" id="tabbar" aria-label="Navegação"></nav>
+<script src="../data/op2026.js"></script>
+<script src="../data/destaques.js"></script>
+<script src="../data/destaques-instagram.js"></script>
+<script src="../shared/op-core.js"></script>
+<script>
+(function(){
+'use strict';
+const C=OPCore,{$,$$,esc,ic,pad,MON,MON3,WD,WD3}=C;
+const H=(mid,a,b)=>'#/op/'+mid+(a?'/'+a:'')+(b?'/'+b:'');
+const M=id=>C.DB.find(m=>m.id===id);
+/* perfil salvo no aparelho */
+let P=(()=>{try{return JSON.parse(C.store.get('op3perfil')||'null')}catch(e){return null}})();
+const S={all:false,day:null,mid:null,q:'',hl:'',seen:new Set((C.store.get('op3seen')||'').split('|').filter(Boolean))};
+function keysOf(p){if(!p)return null;const k=new Set(C.TRANSV);(p.etapas||[]).forEach(e=>{const E=C.ETAPAS.find(x=>x.id===e);if(E)E.keys.forEach(x=>k.add(x))});return k}
+function mine(ev){ if(!P||S.all)return true; const K=keysOf(P); return K.has(ev.s.key)&&C.matchPerfil(ev,P.perfil) }
+function route(){
+  const p=location.hash.replace(/^#\/?/,'').split('/').filter(Boolean);
+  if(p[0]==='cal')return {view:'cal',mid:M(p[1])?p[1]:C.currentMonth().id};
+  if(p[0]==='op'){const mid=M(p[1])?p[1]:C.currentMonth().id,m=M(mid);if(p[2]&&m.sections.some(s=>s.key===p[2]))return {view:'sec',mid,sec:p[2],hid:p[3]||null};return {view:'op',mid}}
+  if(p[0]==='busca')return {view:'search',mid:C.currentMonth().id};
+  return {view:'home',mid:C.currentMonth().id};
+}
+function tabbar(R){
+  $('#tabbar').innerHTML=[['home','#/','home','Início'],['cal','#/cal','cal','Calendário'],['op','#/op','book','Ler a OP'],['search','#/busca','search','Buscar']]
+    .map(([v,h,i,l])=>`<a href="${h}" aria-current="${R.view===v||(v==='op'&&R.view==='sec')}">${ic(i)}${l}</a>`).join('')+`<a href="#" id="tperfil">${ic('user')}Perfil</a>`;
+  $('#tperfil').onclick=e=>{e.preventDefault();perfil(false)};
+}
+const perfilLabel=()=>{if(!P)return 'Toda a rede';const p=C.PERFIS.find(x=>x.id===P.perfil);const e=(P.etapas||[]).map(x=>C.ETAPAS.find(y=>y.id===x).label);return (p?p.label:'')+(e.length?' · '+e.join(', '):'')};
+
+/* ---- início ---- */
+function home(R){
+  const m=M(R.mid), now=C.NOW, inMonth=now.getMonth()+1===m.mnum&&now.getFullYear()===m.year;
+  const base=inMonth?now:new Date(m.year,m.mnum-1,1);
+  const evs=C.parseEvents(m).filter(mine);
+  const all=C.upcoming(evs,base,inMonth?21:35);
+  /* "Hoje" mostra o que começa ou termina hoje; o que só está em andamento vai para uma linha recolhida */
+  const tod=all.filter(x=>C.sameDay(x.date,base)&&(!x.ongoing||C.sameDay(x.end,base)));
+  const ong=all.filter(x=>x.ongoing&&!C.sameDay(x.end,base));
+  const rest=all.filter(x=>!C.sameDay(x.date,base));
+  const groups={}; rest.forEach(x=>{const k=C.dayKey(x.date);(groups[k]=groups[k]||{d:x.date,L:[]}).L.push(x)});
+  const gl=Object.values(groups).sort((a,b)=>a.d-b.d), shown=S.more?gl:gl.slice(0,6);
+  const cont=evs.filter(e=>!e.rg.length);
+  const L=C.destaques();
+  const hora=now.getHours(), saud=hora<12?'Bom dia':hora<18?'Boa tarde':'Boa noite';
+  $('#view').innerHTML=`<header class="top"><div class="app"><div class="tr"><span class="brandlogo"><img src="../assets/logo-goiania.jpeg" alt="Prefeitura de Goiânia · Gestão que Resolve"></span><span class="sp"></span><button class="ib" id="theme" aria-label="Alternar tema"></button></div>
+    <div class="hello"><small>${saud} · OP nº ${pad(m.op)}</small><h1>Seu mês de ${esc(m.name.toLowerCase())}</h1><button class="who" id="who">${ic('sliders')}${esc(perfilLabel())}</button></div></div></header>
+    <div class="app">
+    ${L.length?`<div class="stories" aria-label="Na rede">${L.map((d,i)=>`<button class="st${S.seen.has(d.titulo)?' seen':''}" data-st="${i}"><span class="ring"><span>${C.pic(d,i)}</span></span><small>${esc(d.titulo.split(':')[0])}</small></button>`).join('')}</div>`:''}
+    <section class="blk"><div class="today tone-green"><div class="big"><b>${pad(base.getDate())}</b><span>${MON3[base.getMonth()]}</span></div><div><h3>${inMonth?'Hoje, '+WD[base.getDay()].toLowerCase():'Início do mês'}</h3>
+      ${tod.length?`<ul>${tod.map(x=>`<li class="tone-${x.ev.s.color}"><a href="#" data-ev="${x.ev.id}"><i></i><span>${esc(x.ev.title)} <span class="muted">· ${esc(C.sShort(x.ev.s.key))}${x.ongoing?' · até '+pad(x.end.getDate())+'/'+pad(x.end.getMonth()+1):''}</span></span></a></li>`).join('')}</ul>`:'<p class="muted" style="margin:0">Nada começa ou termina hoje para você.</p>'}
+      ${ong.length?`<details class="ong"><summary>${ic('repeat')}${ong.length} ${ong.length===1?'ação em andamento':'ações em andamento'}</summary><ul>${ong.map(x=>`<li class="tone-${x.ev.s.color}"><a href="#" data-ev="${x.ev.id}"><i></i><span>${esc(x.ev.title)} <span class="muted">· até ${pad(x.end.getDate())}/${pad(x.end.getMonth()+1)}</span></span></a></li>`).join('')}</ul></details>`:''}</div></div></section>
+    <section class="blk"><div class="bt"><h2>Próximos dias</h2><div class="toggle" role="group" aria-label="O que mostrar"><button data-all="0" aria-pressed="${!S.all}">Para mim</button><button data-all="1" aria-pressed="${S.all}">Toda a rede</button></div></div>
+      <div class="tl">${shown.map(g=>{const isT=inMonth&&C.sameDay(g.d,now),dd=Math.round((g.d-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+        return `<div class="tday${isT?' is-today':''}"><h3>${WD[g.d.getDay()].replace('-feira','')}, ${g.d.getDate()} de ${MON[g.d.getMonth()]}${inMonth&&dd===1?'<em>amanhã</em>':inMonth&&dd>1&&dd<7?`<em>em ${dd} dias</em>`:''}</h3><div class="cards">${g.L.map(x=>C.card(x.ev,{src:true,compact:true,href:H})).join('')}</div></div>`}).join('')||`<p class="empty">Nenhuma ação com data até o fim de ${esc(m.name.toLowerCase())}.${C.DB[C.DB.length-1]===m&&m.mnum<12?`<br>A OP de ${MON[m.mnum]} ainda não foi publicada. Quando sair, as ações aparecem aqui.`:''}</p>`}</div>
+      ${gl.length>6&&!S.more?`<button class="more" id="more">${ic('down')}Mostrar mais ${gl.length-6} dias</button>`:''}</section>
+    <div class="cta2">${ic('calplus')}<div><b>Leve para a sua agenda</b><small>${evs.filter(e=>e.rg.length).length} ações de ${esc(m.name.toLowerCase())} ${S.all||!P?'da rede':'do seu perfil'}, no Google Agenda, Outlook ou celular</small></div><button id="exp">Exportar</button></div>
+    ${cont.length?`<section class="blk"><details class="rblock" style="margin:0"><summary>${ic('repeat')}Ações contínuas do mês <span class="chip">${cont.length}</span><span class="chev">${ic('chevR')}</span></summary><div class="cards">${cont.map(e=>C.card(e,{src:true,compact:true,href:H})).join('')}</div></details></section>`:''}
+    <p class="muted" style="font-size:12.5px;text-align:center;margin:28px 0 10px">${esc(C.META.fonte||'')} · ${C.updatedLabel()}<br>Protótipo · versão 3</p></div>`;
+  C.theme($('#theme'));
+  $('#who').onclick=()=>perfil(false);
+  $$('[data-all]').forEach(b=>b.onclick=()=>{S.all=b.dataset.all==='1';home(R)});
+  if($('#more'))$('#more').onclick=()=>{S.more=true;home(R)};
+  $('#exp').onclick=e=>C.addMenu(e.currentTarget,evs.filter(x=>x.rg.length),'Meu mês · '+m.name+(P&&!S.all?' · '+perfilLabel():''));
+  $$('[data-st]').forEach(b=>b.onclick=()=>story(+b.dataset.st));
+  $$('[data-ev]').forEach(a=>a.onclick=e=>{e.preventDefault();const ev=C.findEv(a.dataset.ev);const h=C.matchHead(ev.m,ev.s,ev);location.hash=H(ev.m.id,ev.s.key,h&&h.id)});
+  C.bindCards($('#view'));
+}
+
+/* ---- stories ---- */
+function story(i){
+  const L=C.destaques(); let k=i,t=null;
+  const el=document.createElement('div'); el.className='storyv'; el.setAttribute('role','dialog'); el.setAttribute('aria-label','Destaques da rede');
+  document.body.appendChild(el);
+  const close=()=>{clearTimeout(t);el.remove();C.store.set('op3seen',[...S.seen].join('|'));if(route().view==='home')home(route())};
+  function show(){
+    const d=L[k]; S.seen.add(d.titulo); const r=C.destRoute(d);
+    el.innerHTML=`<div class="bars">${L.map((x,j)=>`<i class="${j<k?'done':j===k?'on':''}"><b></b></i>`).join('')}</div>
+      <header><span class="brandlogo" style="height:34px;padding:3px 6px"><img src="../assets/logo-goiania.jpeg" alt=""></span><small>Na rede · ${k+1} de ${L.length}</small><button aria-label="Fechar">${ic('x')}</button></header>
+      <div class="pic${d.foto?' ph':''}">${C.pic(d,k)}</div>
+      <div class="txt"><small>${esc(d.tipo)} · ${d.inicio===d.fim?C.fmtShort(d.inicio):C.fmtShort(d.inicio)+' a '+C.fmtShort(d.fim)}</small><h2>${esc(d.titulo)}</h2><p>${esc(d.texto)}</p><div class="gos">${r.mid?`<a class="go" href="${H(r.mid,r.sec)}">${ic('book')}Ver na OP</a>`:''}${d.insta?`<a class="go ig" href="${esc(d.insta)}" target="_blank" rel="noopener">Ver no Instagram${d.fonte?' · '+esc(d.fonte):''}</a>`:''}</div></div>
+      <button class="tap l" aria-label="Anterior"></button><button class="tap r" aria-label="Próximo"></button>`;
+    $('header button',el).onclick=close; $$('.go',el).forEach(a=>a.onclick=()=>{clearTimeout(t);el.remove()});
+    $('.tap.l',el).onclick=()=>{if(k>0){k--;show()}}; $('.tap.r',el).onclick=next;
+    clearTimeout(t); t=setTimeout(next,6000);
+  }
+  function next(){if(k<L.length-1){k++;show()}else close()}
+  addEventListener('keydown',function kd(e){if(!document.body.contains(el)){removeEventListener('keydown',kd);return}if(e.key==='Escape')close();if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft'&&k>0){k--;show()}});
+  show();
+}
+
+/* ---- perfil ---- */
+function perfil(first){
+  const sel={perfil:P?P.perfil:null,etapas:new Set(P?P.etapas:[])};
+  const el=document.createElement('div'); el.className='sheet';
+  const draw=()=>{el.innerHTML=`<div role="dialog" aria-label="Seu perfil"><h2>${first?'Boas-vindas à OP':'Seu perfil'}</h2><p>Diga como você atua na rede. O app mostra primeiro o que vale para você. Dá para ver tudo a qualquer momento.</p>
+    <h3>Função</h3><div class="opts">${C.PERFIS.map(p=>`<button class="opt" data-p="${p.id}" aria-pressed="${sel.perfil===p.id}">${ic(p.ico)}${p.label}</button>`).join('')}</div>
+    <h3>Etapas em que atua <span class="muted">(pode marcar mais de uma)</span></h3><div class="opts">${C.ETAPAS.map(e=>`<button class="opt" data-e="${e.id}" aria-pressed="${sel.etapas.has(e.id)}">${ic(e.ico)}${e.label}</button>`).join('')}</div>
+    <button class="ok" id="ok">${first?'Ver meu mês':'Salvar'}</button><button class="skip" id="sk">${first?'Pular e ver toda a rede':'Cancelar'}</button></div>`;
+    $$('[data-p]',el).forEach(b=>b.onclick=()=>{sel.perfil=b.dataset.p;draw()});
+    $$('[data-e]',el).forEach(b=>b.onclick=()=>{const k=b.dataset.e;sel.etapas.has(k)?sel.etapas.delete(k):sel.etapas.add(k);draw()});
+    $('#ok',el).onclick=()=>{P={perfil:sel.perfil||'cre',etapas:sel.etapas.size?[...sel.etapas]:C.ETAPAS.map(e=>e.id)};C.store.set('op3perfil',JSON.stringify(P));S.all=false;el.remove();render(true)};
+    $('#sk',el).onclick=()=>{if(first){C.store.set('op3perfil','null');C.store.set('op3skip','1')}el.remove()};
+  };
+  draw(); document.body.appendChild(el);
+}
+
+/* ---- calendário ---- */
+function cal(R){
+  const m=M(R.mid), flt=mine;
+  const G0=C.monthGrid(m,{filter:flt});
+  if(S.mid!==m.id||!S.day){S.mid=m.id;S.day=(G0.today&&G0.byDay[G0.today])?G0.today:(G0.dayList.find(d=>d>=G0.today)||G0.dayList[0]||1)}
+  const G=C.monthGrid(m,{filter:flt,sel:S.day}), arr=G.byDay[S.day]||[], wd=new Date(m.year,m.mnum-1,S.day).getDay();
+  $('#view').innerHTML=`<div class="app"><div class="ph"><h1>Calendário</h1><div class="toggle"><button data-all="0" aria-pressed="${!S.all}">Para mim</button><button data-all="1" aria-pressed="${S.all}">Rede</button></div></div>
+    <nav class="mrow">${C.DB.map(x=>`<a href="#/cal/${x.id}" aria-current="${x.id===m.id}">${esc(x.name)}</a>`).join('')}</nav>
+    <div class="calbox">${G.html}</div>
+    <div class="blk" id="dsel"><div class="bt"><h2>${WD[wd].replace('-feira','')}, ${S.day} de ${MON[m.mnum-1]}</h2><button class="addcal" id="exp">${ic('calplus')}Exportar mês</button></div>
+    ${arr.length?`<div class="cards">${arr.map(x=>C.card(x.e,{src:true,href:H})).join('')}</div>`:'<p class="empty">Nada marcado neste dia.</p>'}</div></div>`;
+  $$('[data-d]').forEach(b=>b.onclick=()=>{S.day=+b.dataset.d;cal(R);$('#dsel').scrollIntoView({behavior:'smooth'})});
+  $$('[data-all]').forEach(b=>b.onclick=()=>{S.all=b.dataset.all==='1';cal(R)});
+  $('#exp').onclick=e=>C.addMenu(e.currentTarget,C.parseEvents(m).filter(flt).filter(x=>x.rg.length),m.name+(P&&!S.all?' · '+perfilLabel():''));
+  C.bindCards($('#view'));
+}
+/* ---- OP ---- */
+function op(R){
+  const m=M(R.mid), K=keysOf(P), evs=C.parseEvents(m);
+  const row=s=>{const n=evs.filter(e=>e.s===s).length;return `<a class="tone-${s.color}" href="${H(m.id,s.key)}"><span class="bi">${ic(C.sIco(s.key))}</span><span><b>${esc(s.title)}${K&&K.has(s.key)&&!C.TRANSV.includes(s.key)?'<span class="mine">sua etapa</span>':''}</b><small>${n?n+(n===1?' ação':' ações'):'Orientações'}</small></span>${ic('chevR')}</a>`};
+  const et=m.sections.filter(s=>!C.TRANSV.includes(s.key)), tr=m.sections.filter(s=>C.TRANSV.includes(s.key));
+  const sorted=K?[...et.filter(s=>K.has(s.key)),...et.filter(s=>!K.has(s.key))]:et;
+  $('#view').innerHTML=`<div class="app"><div class="ph"><h1>OP nº ${pad(m.op)}</h1></div>
+    <nav class="mrow">${C.DB.map(x=>`<a href="${H(x.id)}" aria-current="${x.id===m.id}">${esc(x.name)}</a>`).join('')}</nav>
+    <p class="muted" style="margin:0">${esc(m.period||'')}</p>
+    <div class="slist"><h3>Etapas e modalidades</h3>${sorted.map(row).join('')}<h3>Para toda a rede</h3>${tr.map(row).join('')}</div></div>`;
+}
+function sec(R){
+  const m=M(R.mid), s=m.sections.find(x=>x.key===R.sec), r=C.readerHTML(m,s,H);
+  $('#view').innerHTML=`<div class="app tone-${s.color}"><div class="ph"><a class="ib" href="${H(m.id)}" aria-label="Voltar">${ic('chevL')}</a><span style="flex:1"></span><div class="rtools"><button id="fm" aria-label="Diminuir texto">A−</button><button id="fp" aria-label="Aumentar texto">A+</button><button id="sh" aria-label="Compartilhar">${ic('share')}</button></div></div>
+    <small class="muted">OP nº ${pad(m.op)} · ${esc(m.name)}</small><h1 style="margin:2px 0 0;font:600 26px/1.15 var(--sans)">${esc(s.title)}</h1>${r.html}<div style="height:30px"></div></div>`;
+  const f=C.fontTools(); $('#fm').onclick=f.minus; $('#fp').onclick=f.plus; $('#sh').onclick=()=>C.share(s.title);
+  C.bindReader($('#view'),m,s,R.hid,S.hl); S.hl='';
+}
+function search(R){
+  $('#view').innerHTML=`<div class="app"><div class="ph"><h1>Buscar</h1></div><input class="sinput" id="q" type="search" placeholder="Conselho de classe, LEIA, MAP…" value="${esc(S.q)}" aria-label="Buscar nas orientações" enterkeyhint="search"><div id="rs"></div></div>`;
+  const run=()=>{const q=S.q,h=q.length>1?C.search(q):[];$('#rs').innerHTML=q.length>1?`<p class="muted">${h.length} ${h.length===1?'resultado':'resultados'}</p>`+h.slice(0,50).map(x=>`<a class="res tone-${x.s.color}" href="${H(x.m.id,x.s.key)}" data-q><b>${ic(C.sIco(x.s.key))}${esc(x.m.name)} · ${esc(C.sShort(x.s.key))}</b><p>${x.snip}</p></a>`).join(''):'<p class="muted">A busca percorre todas as OP de 2026.</p>';$$('[data-q]').forEach(a=>a.onclick=()=>{S.hl=S.q})};
+  let tm; $('#q').oninput=e=>{clearTimeout(tm);tm=setTimeout(()=>{S.q=e.target.value.trim();run()},200)}; run(); $('#q').focus();
+}
+let last='';
+function render(force){
+  const R=route(); tabbar(R);
+  const key=R.view+R.mid+(R.sec||'');
+  if(!force&&key===last&&R.view==='sec'&&R.hid){const t=document.getElementById(R.hid);if(t)t.scrollIntoView({behavior:'smooth'});return}
+  const ch=key!==last; last=key;
+  ({home,cal,op,sec,search})[R.view](R);
+  if(ch&&!R.hid)scrollTo(0,0);
+}
+addEventListener('hashchange',()=>render());
+render();
+if(!P&&!C.store.get('op3skip'))perfil(true);
+})();
+</script>
+</body>
+</html>
